@@ -1,0 +1,13 @@
+Task(Hours)
+Preprocess data: check for missing and erroneous values (2)
+Data Exploration : create exploratory visualizations using matplotlib/vega (3)
+Design visual encodings and chart types(2)
+Break down the system into div containers. Each container for a separate chart (3)
+Data and Task abstraction	(3)
+Design the interactions with Data	(3)
+
+
+# prototype
+# alpha
+# beta
+# release
