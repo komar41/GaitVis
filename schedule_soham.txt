@@ -4,6 +4,7 @@ Find out relevant visualizations applicable for the data (3)
 Find out about allocation of these visualizations into a single page (5)
 Data and Task Abstraction (2)
 Make static visualizations using D3.JS (2)
+Data Abstraction (3)
 
 
 
