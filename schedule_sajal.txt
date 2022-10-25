@@ -1,1 +1,13 @@
+Task(Hours)
+Preprocess the data with appropriate values and clean any incorrect values/fields(3)
+Identification of possible visualizations for cleaned data (2)
+Wireframe visualizations and application page (2)
+Data and Task Abstraction (2)
+Identify appropriate use of D3.js and THREE.js (2)
+Data Abstraction (3)
 
+
+# prototype
+# alpha
+# beta
+# release
