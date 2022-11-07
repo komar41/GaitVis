@@ -4,11 +4,22 @@
 <head>
         <meta charset="utf-8">
         <title>GaitVis</title>
+        <script src="https://d3js.org/d3.v7.js"></script>
+        <link rel="stylesheet" href="src/css/main.css">
 </head>
 
 <body>
-    <div id="div1" style="align-content: center;">
+    <!-- Soham's Chart for Histograms. Linked js file src/js/histogram.js -->
+    <div id="div1">
+        <label for="fname" style="margin: 50px;"></label>
+        <label for="fname">Variable 1: </label>
+        <input type="checkbox" id="someID"checked>
+        <label for="fname" style="margin: 20px;"></label>
+        <label for="fname">Variable 2: </label>
+        <input type="checkbox" id="someID2">
+        <div id="my_dataviz"></div>
     </div>
+
     <div id="div2">
     </div>
     <div id="div3">
@@ -21,14 +32,11 @@
     </div>
     <div id="div7">
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script> 
-    $(function(){
-      $("#div1").load("http://localhost:8888/Desktop/GaitVis/app/row-1-col-1.html"); 
-    });
-    </script> 
-    <script src="https://d3js.org/d3.v7.js"></script>
+
+    
 
 </body>
+
+<script defer src='src/js/histogram.js'></script>
 
 </html>
