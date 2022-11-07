@@ -4,31 +4,41 @@
 <head>
         <meta charset="utf-8">
         <title>GaitVis</title>
-        <link rel="stylesheet" href="src/css/main.css">
         
 </head>
+<style>
+    html, body { height: 100%; padding: 0; margin: 0; }
+    #div1 { width: 33.3%; height: 33.3%; float: left;}
+    #div2 { width: 33.4%; height: 100%; float: right; background:green;}
+    #div3 { width: 33.3%; height: 33.3%; float: left; background:blue;}
+    #div4 { width: 33.3%; height: 33.3%; float: left; background: brown;}
+    #div5 { width: 33.3%; height: 33.3%; float: left; background: orange;}
+    #div6 { width: 33.3%; height: 33.3%; float: left; background: violet;}
+    #div7 { width: 33.3%; height: 33.3%; float: left; background: yellow;}
+</style>
 
 <body>
-        <div id='description'>GaitVis: A Visualization Tool to Explore Gait Characteristics Among Stroke Survivor Patients and Healthy Older Adults</div>
-        
-
-        <div class="grid-container">
-                <div id="viz1">Controls for Visualizations</div>
-                <div id="viz2">Parallel Coordinate Plot</div>
-                <div id="viz3">Radar Plot</div>
-
-                <div id="viz4">View (Distribution-1)</div>
-                <div id="viz5">View (Patient-1)</div>
-                <div id="viz6">View (Patient-2)</div>  
-
-                <div id="viz7">View (Distribution-2)</div>
-                <!-- <div id="viz8">viz8</div> -->
-                <!-- <div id="viz9">viz9</div>   -->
-        </div>
-                
-
-                 
-        </div>
+    <div id="div1" style="align-content: center;">
+    </div>
+    <div id="div2">
+    </div>
+    <div id="div3">
+    </div>
+    <div id="div4">
+    </div>
+    <div id="div5">
+    </div>
+    <div id="div6">
+    </div>
+    <div id="div7">
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script> 
+    $(function(){
+      $("#div1").load("http://localhost:8888/Desktop/GaitVis/app/row-1-col-1.html"); 
+    });
+    </script> 
+    <script src="https://d3js.org/d3.v7.js"></script>
 
 </body>
 
