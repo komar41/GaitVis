@@ -1,8 +1,8 @@
-d3.csv("data/".concat(patient_id, "/", patient_id, "step.csv")).then(data =>{
+// d3.csv("data/".concat(patient_id, "/", patient_id, "step.csv")).then(data =>{
     
-    // Patient step data. Process to extract step time, swing time, ... and so on
+//     // Patient step data. Have to process to extract step time, swing time, ... and so on
 
-})
+// })
 let parseSoc = () => {
     return d3.csv("data/demongraphics.csv", data => {
         // Converted some of the variables to integer type and changed the column names
