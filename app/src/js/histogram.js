@@ -64,7 +64,7 @@ function plotHist(soc){
     console.log(heightt)
     // set the dimensions and margins of the graph
     var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 400 - margin.left - margin.right,
+    width = 500 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
@@ -131,7 +131,8 @@ function plotHist(soc){
                 .attr("y", function(d) { return y(d[selectedVar]); })
                 .attr("width", x.bandwidth())
                 .attr("height", function(d) { return height - y(d[selectedVar]); })
-                .attr("fill", "#69b3a2")
+                .attr("fill", "#1F78B4")
+                .attr('stroke', 'black')
             })
     }
 
