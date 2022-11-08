@@ -1,5 +1,3 @@
-patient_id = "012518cm"
-
 d3.csv("data/".concat(patient_id, "/", patient_id, "step.csv")).then(data =>{
     
     // Patient step data. Process to extract step time, swing time, ... and so on
@@ -55,6 +53,7 @@ let parseJNT = (patient_id, fileName) => {
 }
 
 async function fetchData(){
+    patient_id = "012518cm"
     let soc = await parseSoc()
 
     let grf22 = await parseGRF(patient_id, "_22_grf.csv");
