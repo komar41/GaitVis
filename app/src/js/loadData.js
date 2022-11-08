@@ -66,6 +66,9 @@ async function fetchData(){
     let jnt24 = await parseJNT(patient_id, "_23_jnt.csv");
 
     
-    // Call function required from your js file with the data you require 
+    // Call function required from your js file with the data you require
+    console.log(soc)
+    console.log(jnt22)
+    console.log(grf22)
 }
 fetchData()
