@@ -1,3 +1,4 @@
+let patientNum = 0;
 let data = [];
 let features = ["Step Time (L)", "Swing Time (L)","Stride Time (L)",
                 "Step Time (R)", "Swing Time (R)", "Stride Time (R)"];
@@ -10,9 +11,9 @@ for (var i = 0; i < 3; i++){
 }
 console.log(data);
 
-let svgSpider = d3.select("#div3").append("svg")
+let svgSpider = d3.select("#spiderViz").append("svg")
     .attr("width", 400)
-    .attr("height", 350);
+    .attr("height", 400);
 
 let radialScale = d3.scaleLinear()
     .domain([0,10])
@@ -37,6 +38,7 @@ ticks.forEach(t =>
     .text(t.toString())
     .style("text-anchor", "middle")
     .style("font-size", 14)
+    .style("font-weight", "bold")
 );
 
 function angleToCoordinate(angle, value){
@@ -66,7 +68,7 @@ for (var i = 0; i < features.length; i++) {
     .text(ft_name)
     .style("text-anchor", "middle")
     .style("font-size", 14)
-    .attr("font-weight", "bold")
+    .style("font-weight", "bold")
 }
 
 let line = d3.line()
@@ -84,18 +86,53 @@ function getPathCoordinates(data_point){
     return coordinates;
 }
 
-for (var i = 0; i < 3; i ++){
-    let d = data[i];
-    let color = colors[i];
-    let coordinates = getPathCoordinates(d);
-
+let addPatient = () => {
     //draw the path element
-    svgSpider.append("path")
-    .datum(coordinates)
-    .attr("d",line)
-    .attr("stroke-width", 3)
-    .attr("stroke", color)
-    .attr("fill", color)
-    .attr("stroke-opacity", 1)
-    .attr("opacity", 0.5);
+    addPatientSVG(patientNum)
+    patientNum += 1;
 }
+
+let addPatientSVG = (i) => {
+    if(i < data.length){
+        let d = data[i];
+        let color = colors[i];
+        let coordinates = getPathCoordinates(d);
+    
+        svgSpider.append("path")
+        .attr("id","spd".concat(i))
+        .datum(coordinates)
+        .attr("d",line)
+        .attr("stroke-width", 3)
+        .attr("stroke", color)
+        .attr("fill", color)
+        .attr("stroke-opacity", 1)
+        .attr("opacity", 0.5);
+    }
+}
+
+let remPatient = () => {
+    for (var i = 0; i < patientNum; i++){
+        svgSpider.select("#spd".concat(i)).remove();
+    }
+    patientNum = 0
+}
+
+
+
+// d3.select("#the_SVG_ID").remove();
+
+// for (var i = 0; i < 3; i ++){
+//     let d = data[i];
+//     let color = colors[i];
+//     let coordinates = getPathCoordinates(d);
+
+//     //draw the path element
+//     svgSpider.append("path")
+//     .datum(coordinates)
+//     .attr("d",line)
+//     .attr("stroke-width", 3)
+//     .attr("stroke", color)
+//     .attr("fill", color)
+//     .attr("stroke-opacity", 1)
+//     .attr("opacity", 0.5);
+// }
