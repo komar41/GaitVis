@@ -1,5 +1,6 @@
 let data = [];
-let features = ["A","B","C","D","E","F"];
+let features = ["Step Time (L)", "Swing Time (L)","Stride Time (L)",
+                "Step Time (R)", "Swing Time (R)", "Stride Time (R)"];
 //generate the data
 for (var i = 0; i < 3; i++){
     var point = {}
@@ -10,7 +11,7 @@ for (var i = 0; i < 3; i++){
 console.log(data);
 
 let svgSpider = d3.select("#div3").append("svg")
-    .attr("width", 350)
+    .attr("width", 400)
     .attr("height", 350);
 
 let radialScale = d3.scaleLinear()
@@ -32,8 +33,10 @@ ticks.forEach(t =>{
 ticks.forEach(t =>
     svgSpider.append("text")
     .attr("x", 225)
-    .attr("y", 150 - radialScale(t))
+    .attr("y", 145 - radialScale(t))
     .text(t.toString())
+    .style("text-anchor", "middle")
+    .style("font-size", 14)
 );
 
 function angleToCoordinate(angle, value){
@@ -58,9 +61,12 @@ for (var i = 0; i < features.length; i++) {
 
     //draw axis label
     svgSpider.append("text")
-    .attr("x", label_coordinate.x - 5)
-    .attr("y", label_coordinate.y + 3)
-    .text(ft_name);
+    .attr("x", label_coordinate.x)
+    .attr("y", label_coordinate.y - 10)
+    .text(ft_name)
+    .style("text-anchor", "middle")
+    .style("font-size", 14)
+    .attr("font-weight", "bold")
 }
 
 let line = d3.line()
@@ -78,7 +84,7 @@ function getPathCoordinates(data_point){
     return coordinates;
 }
 
-for (var i = 0; i < data.length; i ++){
+for (var i = 0; i < 3; i ++){
     let d = data[i];
     let color = colors[i];
     let coordinates = getPathCoordinates(d);

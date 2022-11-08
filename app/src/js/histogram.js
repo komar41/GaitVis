@@ -83,6 +83,8 @@ function plotHist(soc){
 
     var xAxis = svg.append("g")
         .attr("transform", "translate(0," + height + ")")
+        .style("text-anchor", "middle")
+        .style("font-size", 14)
 
     // Initialize the Y axis
     var y = d3.scaleLinear()
@@ -90,6 +92,8 @@ function plotHist(soc){
 
     var yAxis = svg.append("g")
         .attr("class", "myYaxis")
+        // .style("text-anchor", "middle")
+        .style("font-size", 14)
 
     // A function that create / update the plot for a given variable:
     function update(selectedVar) {
