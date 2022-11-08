@@ -4,7 +4,8 @@
 
 // })
 let parseSoc = () => {
-    return d3.csv("data/demongraphics.csv", data => {
+    
+    return d3.csv("/data/demographics.csv", data => {
         // Converted some of the variables to integer type and changed the column names
         return{
             height: +data["Height (cm)"],
