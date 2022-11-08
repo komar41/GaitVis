@@ -5,7 +5,7 @@
 // })
 let parseSoc = () => {
     
-    return d3.csv("/data/demographics.csv", data => {
+    return d3.csv("data/demographics.csv", data => {
         // Converted some of the variables to integer type and changed the column names
         return{
             height: +data["Height (cm)"],
@@ -70,5 +70,6 @@ async function fetchData(){
     console.log(soc)
     console.log(jnt22)
     console.log(grf22)
+    plotHist(soc)
 }
 fetchData()

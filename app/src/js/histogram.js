@@ -1,5 +1,5 @@
-async function histdata(){
-    let soc = await parseSoc()
+function plotHist(soc){
+    console.log(soc)
     var a = 0;
     var b = 0;
     var c  = 0;
@@ -157,6 +157,6 @@ async function histdata(){
         }
     });
 }
-histdata();
+// plotHist();
 
 
