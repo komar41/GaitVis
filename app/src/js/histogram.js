@@ -1,5 +1,5 @@
 function plotHist(soc){
-    console.log(soc)
+    // console.log(soc)
     var a = 0;
     var b = 0;
     var c  = 0;
@@ -268,11 +268,11 @@ function plotHist(soc){
     console.log(heightt)
     // set the dimensions and margins of the graph
     var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 450 - margin.left - margin.right,
+    width = 410 - margin.left - margin.right,
     height = 225 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
-    var svg = d3.select("#my_dataviz")
+    var svg = d3.select("#histViz")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -304,8 +304,8 @@ function plotHist(soc){
         d3.select("u").remove();
         // Parse the Data
         d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/barplot_change_data.csv").then( function(data) {
-            console.log(data)
-            console.log(soc)
+            // console.log(data)
+            // console.log(soc)
             // X axis
             if(selectedVar == 'var1'){
                 data = age
@@ -380,7 +380,7 @@ function plotHist(soc){
             update('var1');
         }
         if(e.target.checked === false) {
-            console.log("Checkbox is not checked - boolean value: ", e.target.checked)
+            // console.log("Checkbox is not checked - boolean value: ", e.target.checked)
         }
     });
 
@@ -397,7 +397,7 @@ function plotHist(soc){
             update('var2');
         }
         if(e.target.checked === false) {
-            console.log("Checkbox is not checked - boolean value: ", e.target.checked)
+            // console.log("Checkbox is not checked - boolean value: ", e.target.checked)
         }
     });
 

@@ -12,18 +12,18 @@ for (var i = 0; i < 3; i++){
 console.log(data);
 
 let svgSpider = d3.select("#spiderViz").append("svg")
-    .attr("width", 400)
-    .attr("height", 400);
+    .attr("width", 300)
+    .attr("height", 300);
 
 let radialScale = d3.scaleLinear()
     .domain([0,10])
-    .range([0,120]);
+    .range([0,100]);
 let ticks = [2,4,6,8,10];
 
 ticks.forEach(t =>{
     svgSpider.append("circle")
-    .attr("cx", 220)
-    .attr("cy", 150)
+    .attr("cx", 160)
+    .attr("cy", 120)
     .attr("fill", "none")
     .attr("stroke", "gray")
     .attr("r", radialScale(t))
@@ -33,18 +33,18 @@ ticks.forEach(t =>{
 
 ticks.forEach(t =>
     svgSpider.append("text")
-    .attr("x", 225)
-    .attr("y", 145 - radialScale(t))
+    .attr("x", 170)
+    .attr("y", 130 - radialScale(t))
     .text(t.toString())
     .style("text-anchor", "middle")
-    .style("font-size", 14)
+    .style("font-size", 12)
     .style("font-weight", "bold")
 );
 
 function angleToCoordinate(angle, value){
     let x = Math.cos(angle) * radialScale(value);
     let y = Math.sin(angle) * radialScale(value);
-    return {"x": 220 + x, "y": 150 - y};
+    return {"x": 160 + x, "y": 120 - y};
 }
 
 for (var i = 0; i < features.length; i++) {
@@ -55,8 +55,8 @@ for (var i = 0; i < features.length; i++) {
 
     //draw axis line
     svgSpider.append("line")
-    .attr("x1", 220)
-    .attr("y1", 150)
+    .attr("x1", 160)
+    .attr("y1", 120)
     .attr("x2", line_coordinate.x)
     .attr("y2", line_coordinate.y)
     .attr("stroke","black");
@@ -64,10 +64,10 @@ for (var i = 0; i < features.length; i++) {
     //draw axis label
     svgSpider.append("text")
     .attr("x", label_coordinate.x)
-    .attr("y", label_coordinate.y - 10)
+    .attr("y", label_coordinate.y + 3 )
     .text(ft_name)
     .style("text-anchor", "middle")
-    .style("font-size", 14)
+    .style("font-size", 10)
     .style("font-weight", "bold")
 }
 
@@ -116,23 +116,3 @@ let remPatient = () => {
     }
     patientNum = 0
 }
-
-
-
-// d3.select("#the_SVG_ID").remove();
-
-// for (var i = 0; i < 3; i ++){
-//     let d = data[i];
-//     let color = colors[i];
-//     let coordinates = getPathCoordinates(d);
-
-//     //draw the path element
-//     svgSpider.append("path")
-//     .datum(coordinates)
-//     .attr("d",line)
-//     .attr("stroke-width", 3)
-//     .attr("stroke", color)
-//     .attr("fill", color)
-//     .attr("stroke-opacity", 1)
-//     .attr("opacity", 0.5);
-// }
