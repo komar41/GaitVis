@@ -79,7 +79,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yleft(d.rap) })
+                .y(function (d) { return yright(d.rap) })
             )
 
         svgGFRRight.append("path")
@@ -89,7 +89,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yleft(d.rml) })
+                .y(function (d) { return yright(d.rml) })
             )
 
         svgGFRRight.append("path")
@@ -99,6 +99,6 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yleft(d.rvt) })
+                .y(function (d) { return yright(d.rvt) })
             )
     });
