@@ -1,5 +1,5 @@
 function plotHist(soc){
-    console.log(soc)
+    // console.log(soc)
     var a = 0;
     var b = 0;
     var c  = 0;
@@ -60,15 +60,15 @@ function plotHist(soc){
         }
     }
     let heightt = [{group: "163-168", var2:a},{group: "168-174", var2:b},{group: "174-180", var2:c},{group: "180-185", var2:d},{group: "185-190", var2:e},{group: "190-195", var2:f}]
-    console.log(age)
-    console.log(heightt)
+    // console.log(age)
+    // console.log(heightt)
     // set the dimensions and margins of the graph
     var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 500 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = 410 - margin.left - margin.right,
+    height = 250 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
-    var svg = d3.select("#my_dataviz")
+    var svg = d3.select("#histViz")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -100,8 +100,8 @@ function plotHist(soc){
         d3.select("u").remove();
         // Parse the Data
         d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/barplot_change_data.csv").then( function(data) {
-            console.log(data)
-            console.log(soc)
+            // console.log(data)
+            // console.log(soc)
             // X axis
             if(selectedVar == 'var1'){
                 data = age
@@ -142,23 +142,23 @@ function plotHist(soc){
     const someCheckbox = document.getElementById('someID');
     someCheckbox.addEventListener('change', e => {
         if(e.target.checked === true) {
-            console.log("Checkbox is checked - boolean value: ", e.target.checked)
+            // console.log("Checkbox is checked - boolean value: ", e.target.checked)
             document.getElementById('someID2').checked = false;
             update('var1');
         }
         if(e.target.checked === false) {
-            console.log("Checkbox is not checked - boolean value: ", e.target.checked)
+            // console.log("Checkbox is not checked - boolean value: ", e.target.checked)
         }
     });
     const someCheckbox2 = document.getElementById('someID2');
     someCheckbox2.addEventListener('change', e => {
         if(e.target.checked === true) {
-            console.log("Checkbox is checked - boolean value: ", e.target.checked)
+            // console.log("Checkbox is checked - boolean value: ", e.target.checked)
             document.getElementById('someID').checked = false;
             update('var2');
         }
         if(e.target.checked === false) {
-            console.log("Checkbox is not checked - boolean value: ", e.target.checked)
+            // console.log("Checkbox is not checked - boolean value: ", e.target.checked)
         }
     });
 }

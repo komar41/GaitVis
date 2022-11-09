@@ -67,9 +67,9 @@ async function fetchData(){
 
     
     // Call function required from your js file with the data you require
-    console.log(soc)
-    console.log(jnt22)
-    console.log(grf22)
+    // console.log(soc)
+    // console.log(jnt22)
+    // console.log(grf22)
     plotHist(soc)
 }
 fetchData()

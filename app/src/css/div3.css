@@ -1,7 +1,14 @@
+#spiderViz{
+    position: absolute;
+    /* left: 0px; */
+    top: 50px;
+}
+
 .buttonAddP {
-    float: right;
-    margin-right: 15px;
-    margin-top: 10px;
+    position: absolute;
+    top: 40px;
+    right: 70px;
+    /* margin-top: 10px; */
     background-color:#3e8e41;
     color: #fff;
     border:none; 
@@ -16,15 +23,16 @@
 .buttonAddP:hover {background-color: #37b73c}
 
 .buttonAddP:active {
-    background-color: ##37b73c;
+    background-color: #37b73c;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
 .buttonRemP {
-    float: right;
-    margin-right: 15px;
-    margin-top: 10px;
+    position: absolute;
+    right: 5px;
+    top: 40px;
+    /* margin-top: 10px; */
     background-color:#b32727;
     color: #fff;
     border:none; 
@@ -36,10 +44,10 @@
     font-size: 15px;
 }
 
-.buttonRemP:hover {background-color: #d83232}
+.buttonRemP:hover {background-color: #da2626}
 
 .buttonRemP:active {
-    background-color: ##37b73c;
+    background-color: #da2626;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
