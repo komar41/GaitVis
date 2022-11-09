@@ -4,7 +4,7 @@
 
 // set the dimensions and margins of the graph
 console.log("entered func");
-var margin = { top: 20, right: 20, bottom: 30, left: 50 },
+var margin = { top: 5, right: 5, bottom: 5, left: 5 },
     width = 480 - margin.left - margin.right,
     height = 261 - margin.top - margin.bottom;
 
@@ -36,6 +36,7 @@ svg.style("fill", "#69b3a2")
 
 // Get the data
 d3.csv("data/012518cm_22_grf.csv").then(function (data) {
+    console.log(data)
 
     // format the data
     data.forEach(function (d) {

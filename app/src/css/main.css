@@ -52,7 +52,7 @@ html, body { height: 100%; padding: 0; margin: 0; }
     width: 33.3%; 
     height: 33.3%; 
     float: left; 
-    background: brown;
+    /* background: brown; */
 }
 #div5 
 { 
