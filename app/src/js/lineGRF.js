@@ -1,66 +1,43 @@
+var marginGFR = { top: 10, right: 10, bottom: 50, left: 50 },
+    widthGFR = 500 - marginGFR.left - marginGFR.right,
+    heightGFR = 300 - marginGFR.top - marginGFR.bottom;
 
-
-////////////////////////////////////////////////////////////////////////////////
-
-// set the dimensions and margins of the graph
-console.log("entered func");
-var margin = { top: 5, right: 5, bottom: 5, left: 5 },
-    width = 480 - margin.left - margin.right,
-    height = 261 - margin.top - margin.bottom;
-
-// parse the date / time
-var parseTime = d3.timeParse(":%S");
-
-// set the ranges
-var x = d3.scaleTime().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
+var svgGFR = d3.select("#div4")
+    .append("svg")
+    .attr("width", widthGFR + marginGFR.left + marginGFR.right)
+    .attr("height", heightGFR + marginGFR.top + marginGFR.bottom)
+    .append("g")
+    .attr("transform",
+        "translate(" + marginGFR.left + "," + marginGFR.top + ")");
 
 // define the line
 var valueline = d3.line()
-    .x(function (d) { return x(d.date); })
-    .y(function (d) { return y(d.close); });
-
-// append the svg obgect to the body of the page
-// appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
-
-var svg = d3.select("#div4").append("svg")
-    .attr("width", 480)
-    .attr("height", 261)
-    .append("g")
-    .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
-
-svg.style("fill", "#69b3a2")
-
+    .x(function (d) { return x(d.time); })
+    .y(function (d) { return y(d.rap); });
 
 // Get the data
-d3.csv("data/012518cm_22_grf.csv").then(function (data) {
-    console.log(data)
+d3.csv("data/012518cm/012518cm_22_grf.csv").then(
+    function (data) {
+        var x = d3.scaleLinear()
+            .domain([0, d3.max(data, function (d) { return +d.time; })])
+            .range([0, widthGFR]);
+        svgGFR.append("g")
+            .attr("transform", "translate(0," + heightGFR + ")")
+            .call(d3.axisBottom(x));
 
-    // format the data
-    data.forEach(function (d) {
-        d.date = parseTime(d.date);
-        d.close = +d.close;
+        var y = d3.scaleLinear()
+            .domain([d3.min(data, function (d) { return +d.rap; }), d3.max(data, function (d) { return +d.rap; })])
+            .range([heightGFR, 0]);
+        svgGFR.append("g")
+            .call(d3.axisLeft(y));
+
+        svgGFR.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-widthGFR", 2)
+            .attr("d", d3.line()
+                .x(function (d) { return x(d.time) })
+                .y(function (d) { return y(d.rap) })
+            )
     });
-
-    // Scale the range of the data
-    x.domain(d3.extent(data, function (d) { return d.date; }));
-    y.domain([0, d3.max(data, function (d) { return d.close; })]);
-
-    // Add the valueline path.
-    svg.append("path")
-        .data([data])
-        .attr("class", "line")
-        .attr("d", valueline);
-
-    // Add the x Axis
-    svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
-
-    // Add the y Axis
-    svg.append("g")
-        .call(d3.axisLeft(y));
-
-});

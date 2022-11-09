@@ -13,3 +13,9 @@ Data Abstraction (3)
 # release
 
 Sajal will be creating the line plots (for GRF and Joint angles)
+
+There will be four line charts like this:
+two for joint angles
+and two for ground reaction forces
+3 lines for 3 ground reaction forces
+in both charts

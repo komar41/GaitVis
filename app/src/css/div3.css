@@ -1,4 +1,4 @@
-#spiderViz{
+#spiderViz {
     position: absolute;
     /* left: 0px; */
     top: 50px;
@@ -9,7 +9,7 @@
     top: 40px;
     right: 70px;
     /* margin-top: 10px; */
-    background-color:#3e8e41;
+    background-color: #3e8e41;
     color: #fff;
     border: none;
     text-align: center;
@@ -35,7 +35,7 @@
     right: 5px;
     top: 40px;
     /* margin-top: 10px; */
-    background-color:#b32727;
+    background-color: #b32727;
     color: #fff;
     border: none;
     text-align: center;
@@ -46,7 +46,9 @@
     font-size: 15px;
 }
 
-.buttonRemP:hover {background-color: #da2626}
+.buttonRemP:hover {
+    background-color: #da2626
+}
 
 .buttonRemP:active {
     background-color: #da2626;
