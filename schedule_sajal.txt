@@ -11,3 +11,5 @@ Data Abstraction (3)
 # alpha
 # beta
 # release
+
+Sajal will be creating the line plots (for GRF and Joint angles)
