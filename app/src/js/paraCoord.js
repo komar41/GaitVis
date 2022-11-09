@@ -17,7 +17,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/ir
   console.log(data)
   // Color scale: give me a specie name, I return a color
   const color = d3.scaleOrdinal()
-    .domain(["stroke-survivor patients", "healthy-older adults", "virginica" ])
+    .domain(["stroke-survivor patients", "healthy-older adults"])
     .range([ "#440154ff", "#21908dff", "#fde725ff"])
 
   // Here I set the list of dimension manually to control the order of axis:
