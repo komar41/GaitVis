@@ -121,4 +121,48 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                 .x(function (d) { return x(d.time) })
                 .y(function (d) { return yright(d.trunk) })
             )
+
+        var keysLeft = ["L-foot", "L-shank", "L-thigh", "trunk"]
+        var keysRight = ["R-foot", "R-shank", "R-thigh", "trunk"]
+        var color = ["steelblue", "red", "green", "plum"]
+
+        svgJNTLeft.selectAll("mydots")
+            .data(keysLeft)
+            .enter()
+            .append("circle")
+            .attr("cx", 400)
+            .attr("cy", function (d, i) { return 90 + i * 25 })
+            .attr("r", 7)
+            .style("fill", function (d, i) { return color[i] })
+
+        svgJNTLeft.selectAll("mylabels")
+            .data(keysLeft)
+            .enter()
+            .append("text")
+            .attr("x", 420)
+            .attr("y", function (d, i) { return 90 + i * 25 })
+            .style("fill", function (d, i) { return color[i] })
+            .text(function (d, i) { return keysLeft[i] })
+            .attr("text-anchor", "left")
+            .style("alignment-baseline", "middle")
+
+        svgJNTRight.selectAll("mydots")
+            .data(keysRight)
+            .enter()
+            .append("circle")
+            .attr("cx", 400)
+            .attr("cy", function (d, i) { return 90 + i * 25 })
+            .attr("r", 7)
+            .style("fill", function (d, i) { return color[i] })
+
+        svgJNTRight.selectAll("mylabels")
+            .data(keysRight)
+            .enter()
+            .append("text")
+            .attr("x", 420)
+            .attr("y", function (d, i) { return 90 + i * 25 })
+            .style("fill", function (d, i) { return color[i] })
+            .text(function (d, i) { return keysRight[i] })
+            .attr("text-anchor", "left")
+            .style("alignment-baseline", "middle")
     });
