@@ -169,7 +169,6 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .duration(500)
                     .style("opacity", 0);
             });
-        /////////////
 
         var div = d3.select("#div5").append("div")
             .attr("class", "tooltip")
@@ -247,8 +246,8 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .data(keysLeft)
             .enter()
             .append("circle")
-            .attr("cx", 360)
-            .attr("cy", function (d, i) { return 100 + i * 25 })
+            .attr("cx", 260)
+            .attr("cy", function (d, i) { return 74 + i * 25 })
             .attr("r", 7)
             .style("fill", function (d, i) { return color[i] })
 
@@ -256,8 +255,8 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .data(keysLeft)
             .enter()
             .append("text")
-            .attr("x", 380)
-            .attr("y", function (d, i) { return 100 + i * 25 })
+            .attr("x", 280)
+            .attr("y", function (d, i) { return 74 + i * 25 })
             .style("fill", function (d, i) { return color[i] })
             .text(function (d, i) { return keysLeft[i] })
             .attr("text-anchor", "left")
@@ -267,8 +266,8 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .data(keysRight)
             .enter()
             .append("circle")
-            .attr("cx", 100)
-            .attr("cy", function (d, i) { return 100 + i * 25 })
+            .attr("cx", 50)
+            .attr("cy", function (d, i) { return 74 + i * 25 })
             .attr("r", 7)
             .style("fill", function (d, i) { return color[i] })
 
@@ -276,8 +275,8 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .data(keysRight)
             .enter()
             .append("text")
-            .attr("x", 120)
-            .attr("y", function (d, i) { return 100 + i * 25 })
+            .attr("x", 70)
+            .attr("y", function (d, i) { return 74 + i * 25 })
             .style("fill", function (d, i) { return color[i] })
             .text(function (d, i) { return keysRight[i] })
             .attr("text-anchor", "left")

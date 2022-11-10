@@ -130,7 +130,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .data(keysLeft)
             .enter()
             .append("circle")
-            .attr("cx", 400)
+            .attr("cx", 300)
             .attr("cy", function (d, i) { return 90 + i * 25 })
             .attr("r", 7)
             .style("fill", function (d, i) { return color[i] })
