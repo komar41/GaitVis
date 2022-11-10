@@ -1,5 +1,5 @@
-var marginGFR = { top: 10, right: 10, bottom: 50, left: 30 },
-    widthGFR = 500 - marginGFR.left - marginGFR.right,
+var marginGFR = { top: 80, right: 30, bottom: 30, left: 30 },
+    widthGFR = 400 - marginGFR.left - marginGFR.right,
     heightGFR = 300 - marginGFR.top - marginGFR.bottom;
 
 var svgGFRLeft = d3.select("#div4")

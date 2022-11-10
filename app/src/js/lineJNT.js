@@ -1,6 +1,6 @@
-var marginJNT = { top: 10, right: 10, bottom: 50, left: 30 },
-    widthJNT = 500 - marginJNT.left - marginJNT.right,
-    heightJNT = 300 - marginJNT.top - marginJNT.bottom;
+var marginJNT = { top: 80, right: 30, bottom: 30, left: 30 },
+    widthJNT = 400 - marginJNT.left - marginJNT.right,
+    heightJNT = 250 - marginJNT.top - marginJNT.bottom;
 
 var svgJNTLeft = d3.select("#div6")
     .append("svg")
