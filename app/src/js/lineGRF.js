@@ -31,13 +31,13 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .call(d3.axisBottom(x));
 
         var yleft = d3.scaleLinear()
-            .domain([d3.min(data, function (d) { return Math.min(d.lap, d.lml, d.lvt); }), d3.max(data, function (d) { return Math.max(d.lap, d.lml, d.lvt); })])
+            .domain([d3.min(data, function (d) { return Math.min(d["L-AP"], d["L-ML"], d["L-VT"]); }), d3.max(data, function (d) { return Math.max(d["L-AP"], d["L-ML"], d["L-VT"]); })])
             .range([heightGFR, 0]);
         svgGFRLeft.append("g")
             .call(d3.axisLeft(yleft));
 
         var yright = d3.scaleLinear()
-            .domain([d3.min(data, function (d) { return Math.min(d.rap, d.rml, d.rvt); }), d3.max(data, function (d) { return Math.max(d.rap, d.rml, d.rvt); })])
+            .domain([d3.min(data, function (d) { return Math.min(d["R-AP"], d["R-ML"], d["R-VT"]); }), d3.max(data, function (d) { return Math.max(d["R-AP"], d["R-ML"], d["R-VT"]); })])
             .range([heightGFR, 0]);
         svgGFRRight.append("g")
             .call(d3.axisLeft(yright));
@@ -49,7 +49,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yleft(d.lap) })
+                .y(function (d) { return yleft(d["L-AP"]) })
             )
 
         svgGFRLeft.append("path")
@@ -59,7 +59,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yleft(d.lml) })
+                .y(function (d) { return yleft(d["L-ML"]) })
             )
 
         svgGFRLeft.append("path")
@@ -69,7 +69,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yleft(d.lvt) })
+                .y(function (d) { return yleft(d["L-VT"]) })
             )
 
         svgGFRRight.append("path")
@@ -79,7 +79,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yright(d.rap) })
+                .y(function (d) { return yright(d["R-AP"]) })
             )
 
         svgGFRRight.append("path")
@@ -89,7 +89,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yright(d.rml) })
+                .y(function (d) { return yright(d["R-ML"]) })
             )
 
         svgGFRRight.append("path")
@@ -99,7 +99,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("stroke-widthGFR", 2)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
-                .y(function (d) { return yright(d.rvt) })
+                .y(function (d) { return yright(d["R-VT"]) })
             )
 
         var div = d3.select("#div4").append("div")
@@ -112,13 +112,13 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .enter().append("circle")
             .attr("r", 1)
             .attr("cx", function (d) { return x(d.time); })
-            .attr("cy", function (d) { return yleft(d.lap); })
+            .attr("cy", function (d) { return yleft(d["L-AP"]); })
             .style("fill", "steelblue")
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html("Time: " + d.time + "<br/>L-AP: " + d.lap)
+                div.html("Time: " + d.time + "<br/>L-AP: " + d["L-AP"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
@@ -133,13 +133,13 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .enter().append("circle")
             .attr("r", 1)
             .attr("cx", function (d) { return x(d.time); })
-            .attr("cy", function (d) { return yleft(d.lml); })
+            .attr("cy", function (d) { return yleft(d["L-ML"]); })
             .style("fill", "red")
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html("Time: " + d.time + "<br/>L-ML: " + d.lml)
+                div.html("Time: " + d.time + "<br/>L-ML: " + d["L-ML"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
@@ -154,13 +154,13 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .enter().append("circle")
             .attr("r", 1)
             .attr("cx", function (d) { return x(d.time); })
-            .attr("cy", function (d) { return yleft(d.lvt); })
+            .attr("cy", function (d) { return yleft(d["L-VT"]); })
             .style("fill", "green")
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html("Time: " + d.time + "<br/>L-VT: " + d.lvt)
+                div.html("Time: " + d.time + "<br/>L-VT: " + d["L-VT"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
@@ -181,13 +181,13 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .enter().append("circle")
             .attr("r", 1)
             .attr("cx", function (d) { return x(d.time); })
-            .attr("cy", function (d) { return yright(d.rap); })
+            .attr("cy", function (d) { return yright(d["R-AP"]); })
             .style("fill", "steelblue")
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html("Time: " + d.time + "<br/>R-AP: " + d.rap)
+                div.html("Time: " + d.time + "<br/>R-AP: " + d["R-AP"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
@@ -202,13 +202,13 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .enter().append("circle")
             .attr("r", 1)
             .attr("cx", function (d) { return x(d.time); })
-            .attr("cy", function (d) { return yright(d.rml); })
+            .attr("cy", function (d) { return yright(d["R-ML"]); })
             .style("fill", "red")
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html("Time: " + d.time + "<br/>R-ML: " + d.rml)
+                div.html("Time: " + d.time + "<br/>R-ML: " + d["R-ML"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
@@ -223,13 +223,13 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .enter().append("circle")
             .attr("r", 1)
             .attr("cx", function (d) { return x(d.time); })
-            .attr("cy", function (d) { return yright(d.rvt); })
+            .attr("cy", function (d) { return yright(d["R-VT"]); })
             .style("fill", "green")
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html("Time: " + d.time + "<br/>R-VT: " + d.rvt)
+                div.html("Time: " + d.time + "<br/>R-VT: " + d["R-VT"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
