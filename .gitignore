@@ -1,6 +1,6 @@
 **/.DS_Store
 
-data/
+# data/
 .git/
 misc/
 .ipynb_checkpoints
