@@ -1,8 +1,8 @@
-var marginGFR = { top: 80, right: 30, bottom: 30, left: 30 },
+var marginGFR = { top: 0, right: 30, bottom: 100, left: 30 },
     widthGFR = 400 - marginGFR.left - marginGFR.right,
     heightGFR = 300 - marginGFR.top - marginGFR.bottom;
 
-var svgGFRLeft = d3.select("#div4")
+var svgGFRLeft = d3.select("#lineGrf1")
     .append("svg")
     .attr("width", widthGFR + marginGFR.left + marginGFR.right)
     .attr("height", heightGFR + marginGFR.top + marginGFR.bottom)
@@ -10,7 +10,7 @@ var svgGFRLeft = d3.select("#div4")
     .attr("transform",
         "translate(" + marginGFR.left + "," + marginGFR.top + ")");
 
-var svgGFRRight = d3.select("#div5")
+var svgGFRRight = d3.select("#lineGrf2")
     .append("svg")
     .attr("width", widthGFR + marginGFR.left + marginGFR.right)
     .attr("height", heightGFR + marginGFR.top + marginGFR.bottom)

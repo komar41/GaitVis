@@ -1,8 +1,8 @@
-var marginJNT = { top: 80, right: 30, bottom: 30, left: 30 },
+var marginJNT = { top: 0, right: 30, bottom: 30, left: 30 },
     widthJNT = 400 - marginJNT.left - marginJNT.right,
-    heightJNT = 250 - marginJNT.top - marginJNT.bottom;
+    heightJNT = 200 - marginJNT.top - marginJNT.bottom;
 
-var svgJNTLeft = d3.select("#div6")
+var svgJNTLeft = d3.select("#lineJnt1")
     .append("svg")
     .attr("width", widthJNT + marginJNT.left + marginJNT.right)
     .attr("height", heightJNT + marginJNT.top + marginJNT.bottom)
@@ -10,7 +10,7 @@ var svgJNTLeft = d3.select("#div6")
     .attr("transform",
         "translate(" + marginJNT.left + "," + marginJNT.top + ")");
 
-var svgJNTRight = d3.select("#div7")
+var svgJNTRight = d3.select("#lineJnt2")
     .append("svg")
     .attr("width", widthJNT + marginJNT.left + marginJNT.right)
     .attr("height", heightJNT + marginJNT.top + marginJNT.bottom)
