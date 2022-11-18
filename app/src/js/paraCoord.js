@@ -1,6 +1,6 @@
 const margin = { top: 30, right: 50, bottom: 10, left: 40 },
   width = 480 - margin.left - margin.right,
-  height = 350 - margin.top - margin.bottom;
+  height = 320 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#pcoordViz")

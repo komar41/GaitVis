@@ -1,0 +1,8 @@
+Ground Reaction Forces
+AP -> anterior-posterior (front back)
+ML -> mediolateral (left right)
+VT -> vertical (vertical forces)
+
+anterior-posterior grf: https://www.youtube.com/watch?v=qvK-pVdSMd0
+mediolateral (medial and lateral forces) forces: Figure 1 of https://www.sciencedirect.com/science/article/pii/S0021929012004149
+vertical forces: https://www.youtube.com/watch?v=DBddjx3fAfc

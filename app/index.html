@@ -51,10 +51,21 @@
 
     <!-- Novel Vis. To be updated later and the Parallel Coordinate Plot -->
     <div id="div2">
-        <img src="novel.png" style="width:300px;height:300px;">
-
+        <!-- <img src="novel.png" style="width:300px;height:300px;"> -->
+        <br>
+        <br>
+        <table class = "table">
+            <tr>
+                <th><div id="leftFoot"></div></th>
+                <th><div id="rightFoot"></div></th>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange" style="width:400px;margin-left:25px;">
+        <!-- <div id="novelEncoding"></div> -->
         <div id="description" class="desC">Compare Group of Patients</div>
-        <svg style="width:100%;height:100%;">
+        <svg style="width:100%;">
             <g>
                 <rect x="10" y="100" width="30" height="30" fill='#21908dff' fill-opacity="1" stroke="grey"></rect>
                 <text x="42" y="118" fill="black" font-size="14">Healthy Older Adults</text>
@@ -105,5 +116,6 @@
 <script defer src='src/js/paraCoord.js'></script>
 <script defer src='src/js/lineGRF.js'></script>
 <script defer src='src/js/lineJNT.js'></script>
+<script defer src='src/js/feet.js'></script>
 
 </html>
