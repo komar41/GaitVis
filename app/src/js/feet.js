@@ -80,7 +80,6 @@ var ellipse = svg_left.append("ellipse")
             .attr("cy", 110)
             .attr("rx", 78)
             .attr("ry", 38)
-            .attr("fill", 'url(#grad)')
             .attr("transform", `translate(240,20) rotate(90)`);
 
 var circle = svg_right.append("circle")
@@ -115,12 +114,76 @@ var circle = svg_right.append("circle")
 
 
 
-var ellipse = svg_right.append("ellipse")
+var ellipse2 = svg_right.append("ellipse")
+            .attr("id","temp")
             .attr("cx", 103)
             .attr("cy", 150)
             .attr("rx", 78)
             .attr("ry", 38)
             .attr("fill", 'url(#grad)')
             .attr("transform", `translate(240,20) rotate(90)`);
+var a = 0;
+function updateSlice(val){
+  
+    for(var i =  0; i < data.length ; i++){
+            a+=1
+            if(a%2 == 0){
+              d3.select("#temp").remove();
+              colorss[0] = 'rgb(153,216,201)';
+              var grad = svg.append('defs')
+                .append('linearGradient')
+                .attr('id', 'grad')
+                .attr('x1', '100%')
+                .attr('x2', '0%');
 
+              grad.selectAll('stop')
+                .data(colorss)
+                .enter()
+                .append('stop')
+                .style('stop-color', function(d){ return d; })
+                .attr('offset', function(d,i){
+                  return 100 * (i / (colorss.length - 1)) + '%';
+              })
+              
+              var ellipse3 = svg_right.append("ellipse")
+                .attr("id","234")
+                .attr("cx", 103)
+                .attr("cy", 150)
+                .attr("rx", 78)
+                .attr("ry", 38)
+                .attr("fill", 'url(#grad)')
+                .attr("transform", `translate(240,20) rotate(90)`);
+              console.log(val);
+              console.log(colorss);
+            }
+            else{
+              d3.select("#temp").remove();
+              colorss[0] = 'rgb(44,162,95)';
+              var grad = svg.append('defs')
+                .append('linearGradient')
+                .attr('id', 'grad')
+                .attr('x1', '100%')
+                .attr('x2', '0%');
+
+              grad.selectAll('stop')
+                .data(colorss)
+                .enter()
+                .append('stop')
+                .style('stop-color', function(d){ return d; })
+                .attr('offset', function(d,i){
+                  return 100 * (i / (colorss.length - 1)) + '%';
+               })
+              var ellipse4 = svg_right.append("ellipse")
+                .attr("id","234")
+                .attr("cx", 103)
+                .attr("cy", 150)
+                .attr("rx", 78)
+                .attr("ry", 38)
+                .attr("fill", 'url(#grad)')
+                .attr("transform", `translate(240,20) rotate(90)`);
+                console.log(val);
+                console.log(colorss);
+            }
+        }
+}
 
