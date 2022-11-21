@@ -2,6 +2,42 @@
 //ML colors -> (203,201,226), (158,154,200), (106,81,163)
 //VT colors -> (252,174,145), (251,106,74), (203,24,29)
 
+//Percentile ranges ( 33 & 67)
+
+
+//L-AP -> -0.86, -0.08
+//R-AP -> -0.13, 0.94
+
+//L-ML -> -3.38, 0.39
+//R-ML ->  -0.30, 8.56
+
+
+//L-VT -> 0.03, 75.18
+//R-VT -> 1.80, 10.31
+
+
+
+var grf22; 
+let getGRFData = () => {
+    
+  return d3.csv("data/012518cm/012518cm_22_grf.csv", data => {
+      return {
+          time: +data.time,
+          rAP: +data["R-AP"],
+          lAP: +data["L-AP"],
+          rML: +data["R-ML"],
+          lML: +data["L-ML"],
+          rVT: +data["R-VT"],
+          lVT: +data["L-VT"]
+      }
+  }).then(data => { return data });
+}
+
+async function fetchData() {
+  grf22 = await getGRFData();
+}
+fetchData();
+
 //Base svgs
 
 var svg_left = d3.select("#leftFoot")
@@ -170,83 +206,93 @@ svg_right.append("path")
                 .attr("d", arcGenerator())
                 .attr("fill", 'rgb(178,226,226)');
 
-function updateSlice(val){
-    for(var i =  0; i < data.length ; i++){
 
+async function updateSlice(val){
+    var a;
+    //Get specific data
+    for(var i =  0; i < data.length ; i++){
       //Left AP
-      if(val < 33){
+      for(var j = 0 ; j < 6000 ; j++){
+        var temp = grf22[j].time;
+        if(Math.abs(temp - val) < 0.001){
+          a = j;
+          break;      
+        }
+      }
+      console.log(grf22[a].rAP);
+      if(grf22[a].lAP < -0.86){
         d3.select("#temp1").attr("fill",'rgb(178,226,226)');
         d3.select("#temp5").attr("fill",'rgb(178,226,226)');
       }
-      if(val > 33 && val < 66){
+      if(grf22[a].lAP  > -0.86 && grf22[a].lAP  < -0.08){
         d3.select("#temp1").attr("fill",'rgb(102,194,164)');
         d3.select("#temp5").attr("fill",'rgb(102,194,164)');
       }
-      if(val > 66){
+      if(grf22[a].lAP  > -0.08){
         d3.select("#temp1").attr("fill",'rgb(35,139,69)');
         d3.select("#temp5").attr("fill",'rgb(35,139,69)');
       }
 
       //Right AP
-      if(val < 33){
+      if(grf22[a].rAP < -0.13){
         d3.select("#temp6").attr("fill",'rgb(178,226,226)');
         d3.select("#temp10").attr("fill",'rgb(178,226,226)');
       }
-      if(val > 33 && val < 66){
+      if(grf22[a].rAP > -0.13 && grf22[a].rAP < 0.94){
         d3.select("#temp6").attr("fill",'rgb(102,194,164)');
         d3.select("#temp10").attr("fill",'rgb(102,194,164)');
       }
-      if(val > 66){
+      if(grf22[a].rAP > 0.94){
         d3.select("#temp6").attr("fill",'rgb(35,139,69)');
         d3.select("#temp10").attr("fill",'rgb(35,139,69)');
       }
 
       //Left ML
-      if(val < 33){
+      if(val < -3.38){
         d3.select("#temp2").attr("fill",'rgb(203,201,226)');
         d3.select("#temp4").attr("fill",'rgb(203,201,226)');
       }
-      if(val > 33 && val < 66){
+      if(val > -3.38 && val < 0.39){
         d3.select("#temp2").attr("fill",'rgb(158,154,200)');
         d3.select("#temp4").attr("fill",'rgb(158,154,200)');
       }
-      if(val > 66){
+      if(val > 0.39){
         d3.select("#temp2").attr("fill",'rgb(106,81,163)');
         d3.select("#temp4").attr("fill",'rgb(106,81,163)');
       }
       
       //Right ML
-      if(val < 33){
+      if(val < -0.30){
         d3.select("#temp7").attr("fill",'rgb(203,201,226)');
         d3.select("#temp9").attr("fill",'rgb(203,201,226)');
       }
-      if(val > 33 && val < 66){
+      if(val > -0.30 && val < 8.56){
         d3.select("#temp7").attr("fill",'rgb(158,154,200)');
         d3.select("#temp9").attr("fill",'rgb(158,154,200)');
       }
-      if(val > 66){
+      if(val > 8.56){
         d3.select("#temp7").attr("fill",'rgb(106,81,163)');
         d3.select("#temp9").attr("fill",'rgb(106,81,163)');
       }
 
       //Left VT
-      if(val < 33){
+      if(val < 0.03){
         d3.select("#temp3").attr("fill",'rgb(252,174,145)');
       }
-      if(val > 33 && val < 66){
+      if(val > 0.03 && val < 75.18){
         d3.select("#temp3").attr("fill",'rgb(251,106,74)');
       }
-      if(val > 66){
+      if(val > 75.18){
         d3.select("#temp3").attr("fill",'rgb(203,24,29)');
       }
       //Right VT
-      if(val < 33){
+      if(val < 1.80){
         d3.select("#temp8").attr("fill",'rgb(252,174,145)');
       }
-      if(val > 33 && val < 66){
+      if(val > 1.80 && val < 10.31){
         d3.select("#temp8").attr("fill",'rgb(251,106,74)');
       }
-      if(val > 66){
+      if(val > 10.31){
         d3.select("#temp8").attr("fill",'rgb(203,24,29)');
       }
     }
