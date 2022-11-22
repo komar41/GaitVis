@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>GaitVis</title>
     <script src="https://d3js.org/d3.v7.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-path@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-shape@3"></script>
     <link rel="stylesheet" href="src/css/main.css">
     <link rel="stylesheet" href="src/css/div2.css">
     <link rel="stylesheet" href="src/css/div3.css">
@@ -55,15 +57,20 @@
         <!-- <img src="novel.png" style="width:300px;height:300px;"> -->
         <br>
         <br>
-        <table class = "table">
+        <table class="table">
             <tr>
-                <th><div id="leftFoot"></div></th>
-                <th><div id="rightFoot"></div></th>
+                <th>
+                    <div id="leftFoot"></div>
+                </th>
+                <th>
+                    <div id="rightFoot"></div>
+                </th>
             </tr>
         </table>
         <br>
         <br>
-        <input type="range" min="0" max="10" value="0" class="slider" id="myRange" step = "0.0017" style="width:400px;margin-left:25px;" onchange="updateSlice(value);">
+        <input type="range" min="0" max="10" value="0" class="slider" id="myRange" step="0.0017"
+            style="width:400px;margin-left:25px;" onchange="updateSlice(value);">
         <!-- <div id="novelEncoding"></div> -->
         <div id="description" class="desC">Compare Group of Patients</div>
 
@@ -72,12 +79,12 @@
                 <rect x="10" y="100" width="30" height="30" fill='#21908dff' fill-opacity="1" stroke="grey"></rect>
                 <text x="42" y="118" fill="black" font-size="14">Healthy Older Adults</text>
 
-                <rect x="180" y="100" width="30" height="30" fill='#fde725ff' fill-opacity="1" stroke="grey"></rect> 
+                <rect x="180" y="100" width="30" height="30" fill='#fde725ff' fill-opacity="1" stroke="grey"></rect>
                 <text x="212" y="118" fill="black" font-size="14">Stroke-Survivor Patients</text>
             </g>
-            
+
         </svg>
-        
+
         <div id="pcoordViz"></div>
 
     </div>
@@ -92,13 +99,13 @@
             <option value="012518cm_24">012518cm_24</option>
             <option value="012519cm_22">012519cm_22</option>
             <option value="012519cm_23">012519cm_23</option>
-          </select>
+        </select>
         <button class="buttonRemP" onclick="remPatient()">Reset</button>
-        
+
         <div id="spiderViz"></div>
 
     </div>
-    
+
     <div id="div4">
         <div id="grf_des">GRF (Left)</div>
         <div id="lineGrf1"></div>

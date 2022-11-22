@@ -282,4 +282,48 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
 
+        d3.csv("data/012518cm/012518cmstep.csv").then(
+            function (data1) {
+                svgGFRLeft.append("g")
+                    .call(d3.axisLeft(yleft));
+
+                svgGFRRight.append("g")
+                    .attr("transform", "translate(0," + heightGFR + ")")
+                    .call(d3.axisBottom(x));
+
+                svgGFRLeft.selectAll("dot")
+                    .data(data1)
+                    .enter().append("circle")
+                    .attr("r", 3)
+                    .attr("cx", function (d) { return x(d["touch down L"]); })
+                    .attr("cy", function (d) { return yleft(0); })
+                    .style("fill", "steelblue")
+                    .style("opacity", 0.9)
+
+                svgGFRRight.selectAll("dot")
+                    .data(data1)
+                    .enter().append("circle")
+                    .attr("r", 3)
+                    .attr("cx", function (d) { return x(d["touch down R"]); })
+                    .attr("cy", function (d) { return yright(0); })
+                    .style("fill", "steelblue")
+                    .style("opacity", 0.9)
+
+                svgGFRLeft.selectAll("dot")
+                    .data(data1)
+                    .enter().append("path")
+                    .attr("transform", function (d) { return "translate(" + x(d["toe off L"]) + "," + yleft(0) + ")"; })
+                    .attr("d", d3.symbol().type(d3.symbolTriangle))
+                    .style("fill", "plum")
+                    .style("opacity", 0.9)
+
+                svgGFRRight.selectAll("dot")
+                    .data(data1)
+                    .enter().append("path")
+                    .attr("transform", function (d) { return "translate(" + x(d["toe off R"]) + "," + yright(0) + ")"; })
+                    .attr("d", d3.symbol().type(d3.symbolTriangle))
+                    .style("fill", "plum")
+                    .style("opacity", 0.9)
+            }
+        )
     });
