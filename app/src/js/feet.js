@@ -208,6 +208,7 @@ svg_right.append("path")
 
 
 async function updateSlice(val){
+    console.log(val)
     var a;
     //Get specific data
     for(var i =  0; i < data.length ; i++){
@@ -215,11 +216,14 @@ async function updateSlice(val){
       for(var j = 0 ; j < 6000 ; j++){
         var temp = grf22[j].time;
         if(Math.abs(temp - val) < 0.001){
+          // console.log(temp)
           a = j;
           break;      
         }
       }
+      
       console.log(grf22[a].rAP);
+      console.log(grf22[a].lAP);
       if(grf22[a].lAP < -0.86){
         d3.select("#temp1").attr("fill",'rgb(178,226,226)');
         d3.select("#temp5").attr("fill",'rgb(178,226,226)');
