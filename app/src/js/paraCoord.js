@@ -102,3 +102,16 @@ d3.csv("data/all_trials.csv").then(function (data) {
     .style("font-size", 12)
     .style("font-weight", "bold")
 })
+
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}

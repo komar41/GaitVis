@@ -8,3 +8,49 @@
     position: absolute;
     top: 350px;
 }
+
+.multiselect {
+
+  position: absolute;
+  width: 120px;
+  top: 405px;
+  left: 45px;
+  z-index: 5;
+}
+
+.selectBox {
+
+    z-index: 5;
+  position: relative;
+}
+
+.selectBox select {
+
+    z-index: 5;
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+    
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+    background: white;
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
