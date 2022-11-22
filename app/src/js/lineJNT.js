@@ -299,9 +299,9 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .style("opacity", 0);
             });
 
-        var keysLeft = ["L-foot", "L-shank", "L-thigh", "trunk", "Toe Lift & Touch Down"]
-        var keysRight = ["R-foot", "R-shank", "R-thigh", "trunk", "Toe Lift & Touch Down"]
-        var color = ["steelblue", "red", "green", "plum", "black"]
+        var keysLeft = ["L-foot", "L-shank", "L-thigh", "trunk", "Toe Lift", "Touch Down"]
+        var keysRight = ["R-foot", "R-shank", "R-thigh", "trunk", "Toe Lift", "Touch Down"]
+        var color = ["steelblue", "red", "green", "plum", "orange", "black"]
 
         svgJNTLeft.selectAll("mydots")
             .data(keysLeft)
@@ -375,7 +375,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .enter().append("path")
                     .attr("transform", function (d) { return "translate(" + x(d["toe off L"]) + "," + yleft(0) + ")"; })
                     .attr("d", d3.symbol().type(d3.symbolTriangle))
-                    .style("fill", "black")
+                    .style("fill", "orange")
                     .style("opacity", 0.9)
 
                 svgJNTRight.selectAll("dot")
@@ -383,7 +383,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .enter().append("path")
                     .attr("transform", function (d) { return "translate(" + x(d["toe off R"]) + "," + yright(0) + ")"; })
                     .attr("d", d3.symbol().type(d3.symbolTriangle))
-                    .style("fill", "black")
+                    .style("fill", "orange")
                     .style("opacity", 0.9)
             }
         )
