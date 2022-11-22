@@ -297,3 +297,8 @@ async function updateSlice(val){
       }
     }
 }
+
+let updateRangeVal = (val) => {
+  const range = document.querySelector("#range-slider");
+  range.value = val.toString().concat(" sec") ;
+}
