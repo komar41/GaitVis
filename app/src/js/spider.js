@@ -112,15 +112,14 @@ let addPatientSVG = (i) => {
             .datum(coordinates)
             .attr("d", line)
             .attr("stroke-width", 3)
-            .attr("stroke", "color")
+            .attr("stroke", color)
             .attr("fill", color)
             .attr("stroke-opacity", 1)
             .attr("opacity", 0.5)
             .on('mouseover', function (d, i) {
-                this.parentNode.appendChild(this);
                 d3.select(this).transition()
                      .duration('50')
-                     .attr('opacity', '0.7');
+                     .attr('opacity', '0.8');
             })
             .on('mouseout', function (d, i) {
                 d3.select(this).transition()

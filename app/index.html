@@ -82,17 +82,13 @@
     <!-- Kazi's Spider Charts. Linked js file src/spider.js -->
     <div id="div3">
         <div id="description">Compare Trials</div>
-        <select id="trialSelect" class="buttonAddP" onchange="addPatient(this)">
+        <select id="trialSelect" class="form-control buttonAddP" onclick="scrollPatient(this)" onchange="addPatient(this)">
             <option selected>Add Trials</option>
             <option value="012518cm_22">012518cm_22</option>
             <option value="012518cm_23">012518cm_23</option>
             <option value="012518cm_24">012518cm_24</option>
             <option value="012519cm_22">012519cm_22</option>
             <option value="012519cm_23">012519cm_23</option>
-            <option value="012519cm_24">012519cm_24</option>
-            <option value="012520cm_22">012520cm_22</option>
-            <option value="012520cm_23">012520cm_23</option>
-            <option value="012520cm_24">012520cm_24</option>
           </select>
         <button class="buttonRemP" onclick="remPatient()">Reset</button>
         
