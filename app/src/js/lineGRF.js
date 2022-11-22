@@ -238,9 +238,9 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .style("opacity", 0);
             });
 
-        var keysLeft = ["L-AP", "L-ML", "L-VT"]
-        var keysRight = ["R-AP", "R-ML", "R-VT"]
-        var color = ["steelblue", "red", "green"]
+        var keysLeft = ["L-AP", "L-ML", "L-VT", "Toe Lift & Touch Down"]
+        var keysRight = ["R-AP", "R-ML", "R-VT", "Toe Lift & Touch Down"]
+        var color = ["steelblue", "red", "green", "black"]
 
         svgGFRLeft.selectAll("mydots")
             .data(keysLeft)
@@ -291,13 +291,23 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .attr("transform", "translate(0," + heightGFR + ")")
                     .call(d3.axisBottom(x));
 
+
+                    // svgGFRLeft.append("line")
+                    // .attr("x1", function (d) { return x(d["touch down L"]); })
+                    // .attr("y1", 0)
+                    // .attr("x2", function (d) { return x(d["touch down L"]); })
+                    // .attr("y2", heightGFR - marginGFR.top - marginGFR.bottom)
+                    // .style("stroke-width", 2)
+                    // .style("stroke", "red")
+                    // .style("fill", "none");
+
                 svgGFRLeft.selectAll("dot")
                     .data(data1)
                     .enter().append("circle")
                     .attr("r", 3)
                     .attr("cx", function (d) { return x(d["touch down L"]); })
                     .attr("cy", function (d) { return yleft(0); })
-                    .style("fill", "steelblue")
+                    .style("fill", "black")
                     .style("opacity", 0.9)
 
                 svgGFRRight.selectAll("dot")
@@ -306,7 +316,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .attr("r", 3)
                     .attr("cx", function (d) { return x(d["touch down R"]); })
                     .attr("cy", function (d) { return yright(0); })
-                    .style("fill", "steelblue")
+                    .style("fill", "black")
                     .style("opacity", 0.9)
 
                 svgGFRLeft.selectAll("dot")
@@ -314,7 +324,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .enter().append("path")
                     .attr("transform", function (d) { return "translate(" + x(d["toe off L"]) + "," + yleft(0) + ")"; })
                     .attr("d", d3.symbol().type(d3.symbolTriangle))
-                    .style("fill", "plum")
+                    .style("fill", "black")
                     .style("opacity", 0.9)
 
                 svgGFRRight.selectAll("dot")
@@ -322,7 +332,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .enter().append("path")
                     .attr("transform", function (d) { return "translate(" + x(d["toe off R"]) + "," + yright(0) + ")"; })
                     .attr("d", d3.symbol().type(d3.symbolTriangle))
-                    .style("fill", "plum")
+                    .style("fill", "black")
                     .style("opacity", 0.9)
             }
         )
