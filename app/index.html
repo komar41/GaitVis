@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <!-- Soham's Chart for Histograms. Linked js file src/js/histogram.js -->
     <div id="div1">
         <div id="description">Distribution of patients</div>
@@ -81,9 +82,20 @@
     <!-- Kazi's Spider Charts. Linked js file src/spider.js -->
     <div id="div3">
         <div id="description">Compare Trials</div>
+        <select id="trialSelect" class="buttonAddP" onchange="addPatient(this)">
+            <option selected>Add Trials</option>
+            <option value="012518cm_22">012518cm_22</option>
+            <option value="012518cm_23">012518cm_23</option>
+            <option value="012518cm_24">012518cm_24</option>
+            <option value="012519cm_22">012519cm_22</option>
+            <option value="012519cm_23">012519cm_23</option>
+            <option value="012519cm_24">012519cm_24</option>
+            <option value="012520cm_22">012520cm_22</option>
+            <option value="012520cm_23">012520cm_23</option>
+            <option value="012520cm_24">012520cm_24</option>
+          </select>
         <button class="buttonRemP" onclick="remPatient()">Reset</button>
-        <button class="buttonAddP" onclick="addPatient()">Add Patient</button>
-
+        
         <div id="spiderViz"></div>
 
     </div>
@@ -106,7 +118,8 @@
         <div id="lineJnt2"></div>
     </div>
 
-
+    
+      
 
 </body>
 

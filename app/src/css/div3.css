@@ -9,33 +9,33 @@
     top: 40px;
     right: 70px;
     /* margin-top: 10px; */
-    background-color: #3e8e41;
+    background-color: #69b869;
     color: #fff;
     border: none;
-    text-align: center;
+    text-align: left;
     border-radius: 10px;
     padding: 10px;
-    /* min-height:30px; 
-    min-width: 120px; */
+    /* min-height:30px; */
+    max-width: 150px; 
     font-size: 15px;
 }
 
-.buttonAddP:hover {
+/* .buttonAddP:hover {
     background-color: #37b73c
-}
+} */
 
-.buttonAddP:active {
+/* .buttonAddP:active {
     background-color: #37b73c;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-}
+} */
 
 .buttonRemP {
     position: absolute;
     right: 5px;
     top: 40px;
     /* margin-top: 10px; */
-    background-color: #b32727;
+    background-color: #a14747;
     color: #fff;
     border: none;
     text-align: center;

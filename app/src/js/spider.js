@@ -74,7 +74,7 @@ for (var i = 0; i < features.length; i++) {
 let line = d3.line()
     .x(d => d.x)
     .y(d => d.y);
-let colors = ["darkorange", "gray", "navy"];
+let colors = ["darkorange", "green", "navy"];
 
 function getPathCoordinates(data_point) {
     let coordinates = [];
@@ -86,13 +86,22 @@ function getPathCoordinates(data_point) {
     return coordinates;
 }
 
-let addPatient = () => {
+let addPatient = (selectObject) => {
+    if(selectObject.value!="Add Trials"){
+        // console.log(selectObject.value)
+        const $select = document.querySelector('#trialSelect');
+        $select.value = 'Add Trials'
+    }
     //draw the path element
     addPatientSVG(patientNum)
     patientNum += 1;
+    if(patientNum>=3){
+        document.getElementById('trialSelect').style.visibility = "hidden"
+    }
 }
 
 let addPatientSVG = (i) => {
+    
     if (i < data.length) {
         let d = data[i];
         let color = colors[i];
@@ -103,10 +112,21 @@ let addPatientSVG = (i) => {
             .datum(coordinates)
             .attr("d", line)
             .attr("stroke-width", 3)
-            .attr("stroke", color)
+            .attr("stroke", "color")
             .attr("fill", color)
             .attr("stroke-opacity", 1)
-            .attr("opacity", 0.5);
+            .attr("opacity", 0.5)
+            .on('mouseover', function (d, i) {
+                this.parentNode.appendChild(this);
+                d3.select(this).transition()
+                     .duration('50')
+                     .attr('opacity', '0.7');
+            })
+            .on('mouseout', function (d, i) {
+                d3.select(this).transition()
+                     .duration('50')
+                     .attr('opacity', '0.5');
+            })
     }
 }
 
@@ -115,4 +135,6 @@ let remPatient = () => {
         svgSpider.select("#spd".concat(i)).remove();
     }
     patientNum = 0
+    document.getElementById('trialSelect').style.visibility = "visible";
 }
+
