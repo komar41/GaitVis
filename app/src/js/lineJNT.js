@@ -333,8 +333,8 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .style("opacity", 0);
             });
 
-        var keysLeft = ["L-foot", "L-shank", "L-thigh", "Trunk", "Toe Lift", "Touch Down"]
-        var keysRight = ["R-foot", "R-shank", "R-thigh", "Trunk", "Toe Lift", "Touch Down"]
+        var keysLeft = ["L-Foot", "L-Shank", "L-Thigh", "Trunk", "Toe Lift", "Touch Down"]
+        var keysRight = ["R-Foot", "R-Shank", "R-Thigh", "Trunk", "Toe Lift", "Touch Down"]
         var color = ["steelblue", "red", "green", "plum", "orange", "black"]
 
         svgJNTLeft.selectAll("mydots")
