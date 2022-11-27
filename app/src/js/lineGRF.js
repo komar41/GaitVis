@@ -1,5 +1,5 @@
 var marginGFR = { top: 0, right: 30, bottom: 100, left: 30 },
-    widthGFR = 400 - marginGFR.left - marginGFR.right,
+    widthGFR = 500 - marginGFR.left - marginGFR.right,
     heightGFR = 300 - marginGFR.top - marginGFR.bottom;
 
 var svgGFRLeft = d3.select("#lineGrf1")
@@ -22,7 +22,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
     function (data) {
         var x = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) { return +d.time; })])
-            .range([0, widthGFR]);
+            .range([0, widthGFR - 100]);
         svgGFRLeft.append("g")
             .attr("transform", "translate(0," + heightGFR + ")")
             .call(d3.axisBottom(x));
@@ -116,7 +116,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .style("fill", "steelblue")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
                 div.html("Time: " + d.time + "<br/>L-AP: " + d["L-AP"])
                     .style("left", (event.pageX) + "px")
@@ -246,8 +246,8 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .data(keysLeft)
             .enter()
             .append("circle")
-            .attr("cx", 260)
-            .attr("cy", function (d, i) { return 74 + i * 25 })
+            .attr("cx", 340)
+            .attr("cy", function (d, i) { return 25 + i * 25 })
             .attr("r", 7)
             .style("fill", function (d, i) { return color[i] })
 
@@ -255,9 +255,9 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .data(keysLeft)
             .enter()
             .append("text")
-            .attr("x", 280)
-            .attr("y", function (d, i) { return 74 + i * 25 })
-            .style("fill", function (d, i) { return color[i] })
+            .attr("x", 360)
+            .attr("y", function (d, i) { return 25 + i * 25 })
+            .style("fill", function (d, i) { return "black" })
             .text(function (d, i) { return keysLeft[i] })
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
@@ -266,8 +266,8 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .data(keysRight)
             .enter()
             .append("circle")
-            .attr("cx", 50)
-            .attr("cy", function (d, i) { return 74 + i * 25 })
+            .attr("cx", 340)
+            .attr("cy", function (d, i) { return 25 + i * 25 })
             .attr("r", 7)
             .style("fill", function (d, i) { return color[i] })
 
@@ -275,9 +275,9 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .data(keysRight)
             .enter()
             .append("text")
-            .attr("x", 70)
-            .attr("y", function (d, i) { return 74 + i * 25 })
-            .style("fill", function (d, i) { return color[i] })
+            .attr("x", 360)
+            .attr("y", function (d, i) { return 25 + i * 25 })
+            .style("fill", function (d, i) { return "black" })
             .text(function (d, i) { return keysRight[i] })
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
@@ -288,18 +288,8 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .call(d3.axisLeft(yleft));
 
                 svgGFRRight.append("g")
-                    .attr("transform", "translate(0," + heightGFR + ")")
-                    .call(d3.axisBottom(x));
-
-
-                // svgGFRLeft.append("line")
-                // .attr("x1", function (d) { return x(d["touch down L"]); })
-                // .attr("y1", 0)
-                // .attr("x2", function (d) { return x(d["touch down L"]); })
-                // .attr("y2", heightGFR - marginGFR.top - marginGFR.bottom)
-                // .style("stroke-width", 2)
-                // .style("stroke", "red")
-                // .style("fill", "none");
+                    .attr("transform", "translate(0," + heightGFR + ")");
+                    // .call(d3.axisBottom(x));
 
                 svgGFRLeft.selectAll("dot")
                     .data(data1)

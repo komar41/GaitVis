@@ -1,5 +1,5 @@
 var marginJNT = { top: 0, right: 30, bottom: 30, left: 30 },
-    widthJNT = 400 - marginJNT.left - marginJNT.right,
+    widthJNT = 500 - marginJNT.left - marginJNT.right,
     heightJNT = 200 - marginJNT.top - marginJNT.bottom;
 
 var svgJNTLeft = d3.select("#lineJnt1")
@@ -22,7 +22,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
     function (data) {
         var x = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) { return +d.time; })])
-            .range([0, widthJNT]);
+            .range([0, widthJNT - 125]);
         svgJNTLeft.append("g")
             .attr("transform", "translate(0," + heightJNT + ")")
             .call(d3.axisBottom(x));
@@ -135,9 +135,9 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .style("fill", "steelblue")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
-                div.html("Time: " + d.time + "<br/>L-Foot: " + Lfoot)
+                div.html("Time: " + d.time + "<br/>L-Foot: " + d.Lfoot)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
@@ -156,7 +156,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .style("fill", "red")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
                 div.html("Time: " + d.time + "<br/>L-Shank: " + d.Lshank)
                     .style("left", (event.pageX) + "px")
@@ -177,7 +177,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .style("fill", "green")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
                 div.html("Time: " + d.time + "<br/>L-Thigh: " + d.Lthigh)
                     .style("left", (event.pageX) + "px")
@@ -198,7 +198,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .style("fill", "plum")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
                 div.html("Time: " + d.time + "<br/>Trunk: " + d.trunk)
                     .style("left", (event.pageX) + "px")
@@ -224,7 +224,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .style("fill", "steelblue")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
                 div.html("Time: " + d.time + "<br/>R-Foot: " + d.Rfoot)
                     .style("left", (event.pageX) + "px")
@@ -245,7 +245,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .style("fill", "red")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
                 div.html("Time: " + d.time + "<br/>R-Shank: " + d.Rshank)
                     .style("left", (event.pageX) + "px")
@@ -266,7 +266,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .style("fill", "green")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
                 div.html("Time: " + d.time + "<br/>R-Thigh: " + d.Rthigh)
                     .style("left", (event.pageX) + "px")
@@ -287,7 +287,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .style("fill", "plum")
             .on("mouseover", function (event, d) {
                 div.transition()
-                    .duration(200)
+                    .duration(0)
                     .style("opacity", .9);
                 div.html("Time: " + d.time + "<br/>Trunk: " + d.trunk)
                     .style("left", (event.pageX) + "px")
@@ -299,16 +299,16 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .style("opacity", 0);
             });
 
-        var keysLeft = ["L-foot", "L-shank", "L-thigh", "trunk", "Toe Lift", "Touch Down"]
-        var keysRight = ["R-foot", "R-shank", "R-thigh", "trunk", "Toe Lift", "Touch Down"]
+        var keysLeft = ["L-foot", "L-shank", "L-thigh", "Trunk", "Toe Lift", "Touch Down"]
+        var keysRight = ["R-foot", "R-shank", "R-thigh", "Trunk", "Toe Lift", "Touch Down"]
         var color = ["steelblue", "red", "green", "plum", "orange", "black"]
 
         svgJNTLeft.selectAll("mydots")
             .data(keysLeft)
             .enter()
             .append("circle")
-            .attr("cx", 310)
-            .attr("cy", function (d, i) { return 45 + i * 25 })
+            .attr("cx", 340)
+            .attr("cy", function (d, i) { return 25 + i * 25 })
             .attr("r", 7)
             .style("fill", function (d, i) { return color[i] })
 
@@ -316,9 +316,9 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .data(keysLeft)
             .enter()
             .append("text")
-            .attr("x", 320)
-            .attr("y", function (d, i) { return 45 + i * 25 })
-            .style("fill", function (d, i) { return color[i] })
+            .attr("x", 360)
+            .attr("y", function (d, i) { return 25 + i * 25 })
+            .style("fill", function (d, i) { return "black" })
             .text(function (d, i) { return keysLeft[i] })
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
@@ -327,8 +327,8 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .data(keysRight)
             .enter()
             .append("circle")
-            .attr("cx", 310)
-            .attr("cy", function (d, i) { return 45 + i * 25 })
+            .attr("cx", 340)
+            .attr("cy", function (d, i) { return 25 + i * 25 })
             .attr("r", 7)
             .style("fill", function (d, i) { return color[i] })
 
@@ -336,9 +336,9 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .data(keysRight)
             .enter()
             .append("text")
-            .attr("x", 320)
-            .attr("y", function (d, i) { return 45 + i * 25 })
-            .style("fill", function (d, i) { return color[i] })
+            .attr("x", 360)
+            .attr("y", function (d, i) { return 25 + i * 25 })
+            .style("fill", function (d, i) { return "black" })
             .text(function (d, i) { return keysRight[i] })
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
@@ -349,8 +349,8 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .call(d3.axisLeft(yleft));
 
                 svgJNTRight.append("g")
-                    .attr("transform", "translate(0," + heightGFR + ")")
-                    .call(d3.axisBottom(x));
+                    .attr("transform", "translate(0," + heightGFR + ")");
+                    // .call(d3.axisBottom(x));
 
                 svgJNTLeft.selectAll("dot")
                     .data(data1)
