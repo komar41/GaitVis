@@ -23,9 +23,11 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
         var x = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) { return +d.time; })])
             .range([0, widthJNT - 125]);
+
         svgJNTLeft.append("g")
             .attr("transform", "translate(0," + heightJNT + ")")
             .call(d3.axisBottom(x));
+
         svgJNTRight.append("g")
             .attr("transform", "translate(0," + heightJNT + ")")
             .call(d3.axisBottom(x));
@@ -33,14 +35,30 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
         var yleft = d3.scaleLinear()
             .domain([d3.min(data, function (d) { return Math.min(d.Lfoot, d.Lshank, d.Lthigh, d.trunk); }), d3.max(data, function (d) { return Math.max(d.Lfoot, d.Lshank, d.Lthigh, d.trunk); })])
             .range([heightJNT, 0]);
+
         svgJNTLeft.append("g")
             .call(d3.axisLeft(yleft));
 
         var yright = d3.scaleLinear()
             .domain([d3.min(data, function (d) { return Math.min(d.Rfoot, d.Rshank, d.Rthigh, d.trunk); }), d3.max(data, function (d) { return Math.max(d.Rfoot, d.Rshank, d.Rthigh, d.trunk); })])
             .range([heightJNT, 0]);
+
         svgJNTRight.append("g")
             .call(d3.axisLeft(yright));
+
+        svgJNTLeft.append("text")
+            .attr("class", "x label")
+            .attr("text-anchor", "end")
+            .attr("x", widthJNT - 200)
+            .attr("y", heightJNT + marginJNT.top + marginJNT.bottom)
+            .text("time (seconds)");
+
+            svgJNTRight.append("text")
+            .attr("class", "x label")
+            .attr("text-anchor", "end")
+            .attr("x", widthJNT - 200)
+            .attr("y", heightJNT + marginJNT.top + marginJNT.bottom)
+            .text("time (seconds)");
 
         svgJNTLeft.append("path")
             .datum(data)
@@ -350,41 +368,55 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
 
                 svgJNTRight.append("g")
                     .attr("transform", "translate(0," + heightGFR + ")");
-                    // .call(d3.axisBottom(x));
+                // .call(d3.axisBottom(x));
 
                 svgJNTLeft.selectAll("dot")
                     .data(data1)
-                    .enter().append("circle")
-                    .attr("r", 3)
-                    .attr("cx", function (d) { return x(d["touch down L"]); })
-                    .attr("cy", function (d) { return yleft(0); })
-                    .style("fill", "black")
-                    .style("opacity", 0.9)
+                    .enter().append("line")
+                    .attr("x1", function (d) { return x(d["touch down L"]); })
+                    .attr("y1", 0)
+                    .attr("x2", function (d) { return x(d["touch down L"]); })
+                    .attr("y2", heightJNT)
+                    .style("stroke-width", 2)
+                    .style("stroke", "black")
+                    .style("fill", "none")
+                    .style("opacity", 0.7)
 
                 svgJNTRight.selectAll("dot")
                     .data(data1)
-                    .enter().append("circle")
-                    .attr("r", 3)
-                    .attr("cx", function (d) { return x(d["touch down R"]); })
-                    .attr("cy", function (d) { return yright(0); })
-                    .style("fill", "black")
-                    .style("opacity", 0.9)
+                    .enter().append("line")
+                    .attr("x1", function (d) { return x(d["touch down R"]); })
+                    .attr("y1", 0)
+                    .attr("x2", function (d) { return x(d["touch down R"]); })
+                    .attr("y2", heightJNT)
+                    .style("stroke-width", 2)
+                    .style("stroke", "black")
+                    .style("fill", "none")
+                    .style("opacity", 0.7)
 
                 svgJNTLeft.selectAll("dot")
                     .data(data1)
-                    .enter().append("path")
-                    .attr("transform", function (d) { return "translate(" + x(d["toe off L"]) + "," + yleft(0) + ")"; })
-                    .attr("d", d3.symbol().type(d3.symbolTriangle))
-                    .style("fill", "orange")
-                    .style("opacity", 0.9)
+                    .enter().append("line")
+                    .attr("x1", function (d) { return x(d["toe off L"]); })
+                    .attr("y1", 0)
+                    .attr("x2", function (d) { return x(d["toe off L"]); })
+                    .attr("y2", heightJNT)
+                    .style("stroke-width", 2)
+                    .style("stroke", "orange")
+                    .style("fill", "none")
+                    .style("opacity", 0.7)
 
                 svgJNTRight.selectAll("dot")
                     .data(data1)
-                    .enter().append("path")
-                    .attr("transform", function (d) { return "translate(" + x(d["toe off R"]) + "," + yright(0) + ")"; })
-                    .attr("d", d3.symbol().type(d3.symbolTriangle))
-                    .style("fill", "orange")
-                    .style("opacity", 0.9)
+                    .enter().append("line")
+                    .attr("x1", function (d) { return x(d["toe off R"]); })
+                    .attr("y1", 0)
+                    .attr("x2", function (d) { return x(d["toe off R"]); })
+                    .attr("y2", heightJNT)
+                    .style("stroke-width", 2)
+                    .style("stroke", "orange")
+                    .style("fill", "none")
+                    .style("opacity", 0.7)
             }
         )
     });
