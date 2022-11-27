@@ -1,4 +1,4 @@
-var marginGFR = { top: 0, right: 30, bottom: 30, left: 30 },
+var marginGFR = { top: 0, right: 30, bottom: 30, left: 50 },
     widthGFR = 500 - marginGFR.left - marginGFR.right,
     heightGFR = 250 - marginGFR.top - marginGFR.bottom;
 
@@ -53,12 +53,28 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("y", heightGFR + marginGFR.top + marginGFR.bottom)
             .text("time (seconds)");
 
+        svgGFRLeft.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("y", -marginGFR.bottom)
+            .attr("x", -marginGFR.left)
+            .attr("transform", "rotate(-90)")
+            .text("Ground Reaction Forces (Newtons)");
+
         svgGFRRight.append("text")
             .attr("class", "x label")
             .attr("text-anchor", "end")
             .attr("x", widthGFR - 200)
             .attr("y", heightGFR + marginGFR.top + marginGFR.bottom)
             .text("time (seconds)");
+
+        svgGFRRight.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("y", -marginGFR.bottom)
+            .attr("x", -marginGFR.left)
+            .attr("transform", "rotate(-90)")
+            .text("Ground Reaction Forces (Newtons)");
 
         svgGFRLeft.append("path")
             .datum(data)

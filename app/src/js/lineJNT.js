@@ -1,6 +1,6 @@
-var marginJNT = { top: 0, right: 30, bottom: 30, left: 30 },
+var marginJNT = { top: 0, right: 30, bottom: 30, left: 50 },
     widthJNT = 500 - marginJNT.left - marginJNT.right,
-    heightJNT = 200 - marginJNT.top - marginJNT.bottom;
+    heightJNT = 250 - marginJNT.top - marginJNT.bottom;
 
 var svgJNTLeft = d3.select("#lineJnt1")
     .append("svg")
@@ -53,12 +53,28 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .attr("y", heightJNT + marginJNT.top + marginJNT.bottom)
             .text("time (seconds)");
 
-            svgJNTRight.append("text")
+        svgJNTLeft.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("y", -marginJNT.bottom)
+            .attr("x", -marginJNT.left)
+            .attr("transform", "rotate(-90)")
+            .text("Joint Angles (Degrees)");
+
+        svgJNTRight.append("text")
             .attr("class", "x label")
             .attr("text-anchor", "end")
             .attr("x", widthJNT - 200)
             .attr("y", heightJNT + marginJNT.top + marginJNT.bottom)
             .text("time (seconds)");
+
+        svgJNTRight.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("y", -marginJNT.bottom)
+            .attr("x", -marginJNT.left)
+            .attr("transform", "rotate(-90)")
+            .text("Joint Angles (Degrees)");
 
         svgJNTLeft.append("path")
             .datum(data)
