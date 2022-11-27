@@ -397,6 +397,19 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .style("stroke", "black")
                     .style("fill", "none")
                     .style("opacity", 0.7)
+                    .on("mouseover", function (event, d) {
+                        div.transition()
+                            .duration(0)
+                            .style("opacity", .9);
+                        div.html("Time Touch Down L: " + d["touch down L"])
+                            .style("left", (event.pageX) + "px")
+                            .style("top", (event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function (d) {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
 
                 svgJNTRight.selectAll("dot")
                     .data(data1)
@@ -409,6 +422,19 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .style("stroke", "black")
                     .style("fill", "none")
                     .style("opacity", 0.7)
+                    .on("mouseover", function (event, d) {
+                        div.transition()
+                            .duration(0)
+                            .style("opacity", .9);
+                        div.html("Time Touch Down R: " + d["touch down R"])
+                            .style("left", (event.pageX) + "px")
+                            .style("top", (event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function (d) {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
 
                 svgJNTLeft.selectAll("dot")
                     .data(data1)
@@ -421,6 +447,19 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .style("stroke", "orange")
                     .style("fill", "none")
                     .style("opacity", 0.7)
+                    .on("mouseover", function (event, d) {
+                        div.transition()
+                            .duration(0)
+                            .style("opacity", .9);
+                        div.html("Time Toe Off L: " + d["toe off L"])
+                            .style("left", (event.pageX) + "px")
+                            .style("top", (event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function (d) {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
 
                 svgJNTRight.selectAll("dot")
                     .data(data1)
@@ -433,6 +472,19 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .style("stroke", "orange")
                     .style("fill", "none")
                     .style("opacity", 0.7)
+                    .on("mouseover", function (event, d) {
+                        div.transition()
+                            .duration(0)
+                            .style("opacity", .9);
+                        div.html("Time Toe Off R: " + d["toe off R"])
+                            .style("left", (event.pageX) + "px")
+                            .style("top", (event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function (d) {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
             }
         )
     });
