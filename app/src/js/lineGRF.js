@@ -1,4 +1,4 @@
-var marginGFR = { top: 0, right: 30, bottom: 30, left: 50 },
+var marginGFR = { top: 0, right: 30, bottom: 50, left: 50 },
     widthGFR = 500 - marginGFR.left - marginGFR.right,
     heightGFR = 250 - marginGFR.top - marginGFR.bottom;
 
@@ -50,7 +50,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("class", "x label")
             .attr("text-anchor", "end")
             .attr("x", widthGFR - 200)
-            .attr("y", heightGFR + marginGFR.top + marginGFR.bottom)
+            .attr("y", heightGFR + marginGFR.top + marginGFR.bottom - 20)
             .text("time (seconds)");
 
         svgGFRLeft.append("text")
@@ -65,7 +65,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("class", "x label")
             .attr("text-anchor", "end")
             .attr("x", widthGFR - 200)
-            .attr("y", heightGFR + marginGFR.top + marginGFR.bottom)
+            .attr("y", heightGFR + marginGFR.top + marginGFR.bottom - 20)
             .text("time (seconds)");
 
         svgGFRRight.append("text")
@@ -151,7 +151,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>L-AP: " + d["L-AP"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -172,7 +172,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>L-ML: " + d["L-ML"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -193,7 +193,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>L-VT: " + d["L-VT"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -219,7 +219,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>R-AP: " + d["R-AP"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -240,7 +240,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>R-ML: " + d["R-ML"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -261,7 +261,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>R-VT: " + d["R-VT"])
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -333,13 +333,14 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .attr("x2", function (d) { return x(d["touch down L"]); })
                     .attr("y2", heightGFR)
                     .style("stroke-width", 2)
+                    .style("stroke-dasharray", ("3, 3"))
                     .style("stroke", "black")
                     .style("fill", "none")
                     .style("opacity", 0.7)
                     .on("mouseover", function (event, d) {
                         div.transition()
                             .duration(0)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                         div.html("Time Touch Down L: " + d["touch down L"])
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");
@@ -358,13 +359,14 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .attr("x2", function (d) { return x(d["touch down R"]); })
                     .attr("y2", heightGFR)
                     .style("stroke-width", 2)
+                    .style("stroke-dasharray", ("3, 3"))
                     .style("stroke", "black")
                     .style("fill", "none")
                     .style("opacity", 0.7)
                     .on("mouseover", function (event, d) {
                         div.transition()
                             .duration(0)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                         div.html("Time Touch Down R: " + d["touch down R"])
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");
@@ -383,13 +385,14 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .attr("x2", function (d) { return x(d["toe off L"]); })
                     .attr("y2", heightGFR)
                     .style("stroke-width", 2)
+                    .style("stroke-dasharray", ("3, 3"))
                     .style("stroke", "orange")
                     .style("fill", "none")
-                    .style("opacity", 0.7)
+                    .style("opacity", 0.9)
                     .on("mouseover", function (event, d) {
                         div.transition()
                             .duration(0)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                         div.html("Time Toe Off L: " + d["toe off L"])
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");
@@ -408,13 +411,14 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     .attr("x2", function (d) { return x(d["toe off R"]); })
                     .attr("y2", heightGFR)
                     .style("stroke-width", 2)
+                    .style("stroke-dasharray", ("3, 3"))
                     .style("stroke", "orange")
                     .style("fill", "none")
-                    .style("opacity", 0.7)
+                    .style("opacity", 0.9)
                     .on("mouseover", function (event, d) {
                         div.transition()
                             .duration(0)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                         div.html("Time Toe Off R: " + d["toe off R"])
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");

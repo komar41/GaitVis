@@ -1,6 +1,6 @@
 var marginJNT = { top: 0, right: 30, bottom: 30, left: 50 },
     widthJNT = 500 - marginJNT.left - marginJNT.right,
-    heightJNT = 250 - marginJNT.top - marginJNT.bottom;
+    heightJNT = 200 - marginJNT.top - marginJNT.bottom;
 
 var svgJNTLeft = d3.select("#lineJnt1")
     .append("svg")
@@ -170,7 +170,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>L-Foot: " + d.Lfoot)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -191,7 +191,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>L-Shank: " + d.Lshank)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -212,7 +212,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>L-Thigh: " + d.Lthigh)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -233,7 +233,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>Trunk: " + d.trunk)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -259,7 +259,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>R-Foot: " + d.Rfoot)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -280,7 +280,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>R-Shank: " + d.Rshank)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -301,7 +301,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>R-Thigh: " + d.Rthigh)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -322,7 +322,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .on("mouseover", function (event, d) {
                 div.transition()
                     .duration(0)
-                    .style("opacity", .9);
+                    .style("opacity", 0.9);
                 div.html("Time: " + d.time + "<br/>Trunk: " + d.trunk)
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px");
@@ -394,13 +394,14 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .attr("x2", function (d) { return x(d["touch down L"]); })
                     .attr("y2", heightJNT)
                     .style("stroke-width", 2)
+                    .style("stroke-dasharray", ("3, 3"))
                     .style("stroke", "black")
                     .style("fill", "none")
                     .style("opacity", 0.7)
                     .on("mouseover", function (event, d) {
                         div.transition()
                             .duration(0)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                         div.html("Time Touch Down L: " + d["touch down L"])
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");
@@ -419,13 +420,14 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .attr("x2", function (d) { return x(d["touch down R"]); })
                     .attr("y2", heightJNT)
                     .style("stroke-width", 2)
+                    .style("stroke-dasharray", ("3, 3"))
                     .style("stroke", "black")
                     .style("fill", "none")
                     .style("opacity", 0.7)
                     .on("mouseover", function (event, d) {
                         div.transition()
                             .duration(0)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                         div.html("Time Touch Down R: " + d["touch down R"])
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");
@@ -444,13 +446,14 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .attr("x2", function (d) { return x(d["toe off L"]); })
                     .attr("y2", heightJNT)
                     .style("stroke-width", 2)
+                    .style("stroke-dasharray", ("3, 3"))
                     .style("stroke", "orange")
                     .style("fill", "none")
-                    .style("opacity", 0.7)
+                    .style("opacity", 0.9)
                     .on("mouseover", function (event, d) {
                         div.transition()
                             .duration(0)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                         div.html("Time Toe Off L: " + d["toe off L"])
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");
@@ -469,13 +472,14 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     .attr("x2", function (d) { return x(d["toe off R"]); })
                     .attr("y2", heightJNT)
                     .style("stroke-width", 2)
+                    .style("stroke-dasharray", ("3, 3"))
                     .style("stroke", "orange")
                     .style("fill", "none")
-                    .style("opacity", 0.7)
+                    .style("opacity", 0.9)
                     .on("mouseover", function (event, d) {
                         div.transition()
                             .duration(0)
-                            .style("opacity", .9);
+                            .style("opacity", 0.9);
                         div.html("Time Toe Off R: " + d["toe off R"])
                             .style("left", (event.pageX) + "px")
                             .style("top", (event.pageY - 28) + "px");
