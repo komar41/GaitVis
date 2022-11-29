@@ -15,6 +15,9 @@
 
 <body>
 
+    <div class="line-1"></div>
+    <div class="line-2"></div>
+    <div class="line-3"></div>
     <!-- Soham's Chart for Histograms. Linked js file src/js/histogram.js -->
     <div id="div1">
         <div id="description">Distribution of patients</div>
@@ -54,44 +57,53 @@
 
     <!-- Novel Vis. To be updated later and the Parallel Coordinate Plot -->
     <div id="div2">
-        
-
-        <!-- <img src="novel.png" style="width:300px;height:300px;"> -->
-        <br>
-        <br>
-        <table class="table">
-            <tr>
-                <th>
-                    <div id="leftFoot"></div>
-                </th>
-                <th>
-                    <div id="rightFoot"></div>
-                </th>
-            </tr>
-        </table>
-
-        
-        <br>
-        <br>
-        <input type="range" min="0" max="10" value="0" class="slider" id="myRange" step="0.0017"
-            style="width:400px;margin-left:25px; border: 1px solid" onchange="updateSlice(value);" oninput="updateRangeVal(this.value)">
-        <div id="range-slider-t">Time:</div>
-        <output id="range-slider">0 sec</output>
-        <!-- <div id="novelEncoding"></div> -->
         <div id="description" class="desC">Compare Group of Patients</div>
-
+        <div id="pcoordViz"></div>
         <svg style="width:100%;">
             <g>
-                <rect x="10" y="100" width="30" height="30" fill='#21908dff' fill-opacity="1" stroke="grey"></rect>
-                <text x="42" y="118" fill="black" font-size="14">Healthy Older Adults</text>
+                <rect x="60" y="50" width="30" height="30" fill='#21908dff' fill-opacity="1" stroke="grey"></rect>
+                <text x="92" y="68" fill="black" font-size="14">Healthy Older Adults</text>
 
-                <rect x="180" y="100" width="30" height="30" fill='#fde725ff' fill-opacity="1" stroke="grey"></rect>
-                <text x="212" y="118" fill="black" font-size="14">Stroke-Survivor Patients</text>
+                <rect x="230" y="50" width="30" height="30" fill='#fde725ff' fill-opacity="1" stroke="grey"></rect>
+                <text x="262" y="68" fill="black" font-size="14">Stroke-Survivor Patients</text>
             </g>
 
         </svg>
 
-        <div id="pcoordViz"></div>
+        
+
+        <select id="trialSelectGRF" class="selectTrial" onchange="">
+            <option selected>Select a Trial</option>
+            <option value="012518cm_22">012518cm_22</option>
+            <option value="012518cm_23">012518cm_23</option>
+            <option value="012518cm_24">012518cm_24</option>
+            <option value="012519cm_22">012519cm_22</option>
+            <option value="012519cm_23">012519cm_23</option>
+        </select>
+
+        <div id="description" class="descFeet">GRF (Both Feet)</div>
+        <!-- <img src="novel.png" style="width:300px;height:300px;"> -->
+        <div id="feet_chart">
+            <table class="table">
+                <tr>
+                    <th>
+                        <div id="leftFoot"></div>
+                    </th>
+                    <th>
+                        <div id="rightFoot"></div>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        
+
+        
+        <br>
+        <br>
+        <input type="range" min="0" max="10" value="0" class="slider" id="myRange" step="0.0017" onchange="updateSlice(value);" oninput="updateRangeVal(this.value)">
+        <div id="range-slider-t">Time:</div>
+        <output id="range-slider">0 sec</output>
+        <!-- <div id="novelEncoding"></div> -->
 
     </div>
 

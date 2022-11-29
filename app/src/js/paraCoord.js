@@ -1,6 +1,6 @@
-const margin = { top: 30, right: 50, bottom: 10, left: 40 },
-  width = 480 - margin.left - margin.right,
-  height = 320 - margin.top - margin.bottom;
+const margin = { top: 20, right: 50, bottom: 10, left: 60 },
+  width = 470 - margin.left - margin.right,
+  height = 190 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#pcoordViz")
@@ -99,7 +99,7 @@ d3.csv("data/all_trials.csv").then(function (data) {
     .attr("y", -9)
     .text(function (d) { return d; })
     .style("fill", "black")
-    .style("font-size", 12)
+    .style("font-size", 11)
     .style("font-weight", "bold")
 })
 

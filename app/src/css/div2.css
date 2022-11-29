@@ -1,23 +1,50 @@
 #pcoordViz {
     position: absolute;
     /* left: 0px; */
-    top: 450px;
+    top: 100px;
 }
 
 .desC {
     position: absolute;
-    top: 350px;
+    top: 0px;
 }
 
-#range-slider-t{
+.selectTrial {
     position: absolute;
-    font-size: 15px;
+    top: 360px;
+    left: 200px;
+    /* margin-top: 10px; */
+    background-color: #1acbd8;
+    color: #fff;
+    border: none;
+    text-align: left;
+    border-radius: 10px;
+    padding: 10px;
+    /* min-height:30px; */
+    max-width: 150px; 
+    font-size: 20px;
+}
+
+.descFeet {
+    position: absolute;
+    left: 0px;
+    top: 450px;
+}
+
+#feet_chart{
+    position: absolute;
+    left: 50px;
+    top: 500px;
+}
+
+#feet_des{
+    font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    text-align: center;
     color: #000000;
-    left: 30px;
-    top: 310px;
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 #range-slider{
@@ -27,6 +54,26 @@
     text-decoration: none;
     text-align: center;
     color: #000000;
-    left: 70px;
-    top: 310px;
+    left: 200px;
+    top: 750px;
 }
+
+#range-slider-t{
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    color: #000000;
+    left: 160px;
+    top: 750px;
+}
+
+.slider{
+    position:absolute;
+    width:300px;
+    margin-left:80px;
+    top: 720px; 
+    left: 50px;
+    border: 1px solid;
+} 

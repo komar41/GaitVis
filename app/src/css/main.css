@@ -22,6 +22,30 @@ body {
     /* text-align: center; */
 }
 
+.line-1 {
+    border: 0.5px dashed rgba(0, 0, 0, 0.272);
+    width: 100%;
+    position: absolute;
+    top: 290px;
+  }
+
+  .line-2 {
+    position:absolute;
+    left: 33.3%;
+    border-left: 2px dashed rgba(0, 0, 0, 0.272);
+    height: 290px;
+    top: 0px;
+  }
+
+  .line-3 {
+    position:absolute;
+    right: 33.3%;
+    border-left: 2px dashed rgba(0, 0, 0, 0.272);
+    height: 290px;
+
+    top: 0px;
+  }
+
 html,
 body {
     height: 100%;
