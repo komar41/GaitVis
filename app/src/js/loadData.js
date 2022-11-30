@@ -49,6 +49,7 @@ async function fetchData(patient_id) {
 
     genLineJnt(jnt22, patient_id)
     getLineGrf(grf22, patient_id)
+    fetchDataT(grf22, patient_id)
 }
 fetchData("012518cm")
 

@@ -11,7 +11,7 @@
 
 .selectTrial {
     position: absolute;
-    top: 360px;
+    top: 330px;
     left: 200px;
     /* margin-top: 10px; */
     background-color: #1acbd8;
@@ -23,6 +23,12 @@
     /* min-height:30px; */
     max-width: 150px; 
     font-size: 20px;
+}
+
+.descTrial {
+    position: absolute;
+    left: 0px;
+    top: 380px;
 }
 
 .descFeet {

@@ -18,25 +18,36 @@
 
 
 var grf22; 
-let getGRFData = () => {
-    
-  return d3.csv("data/012518cm/012518cm_22_grf.csv", data => {
-      return {
-          time: +data.time,
-          rAP: +data["R-AP"],
-          lAP: +data["L-AP"],
-          rML: +data["R-ML"],
-          lML: +data["L-ML"],
-          rVT: +data["R-VT"],
-          lVT: +data["L-VT"]
-      }
-  }).then(data => { return data });
+let getFeetGrf = (data) => {
+
+  var dataGrf = data.map(function(d) {
+        return { 
+        time: +d.time, 
+        rAP: +d["R-AP"], 
+        lAP: +d["L-AP"],
+        rML: +d["R-ML"],
+        lML: +d["L-ML"],
+        rVT: +d["R-VT"],
+        lVT: +d["L-VT"]};
+  });
+
+  // console.log(dataGrf)
+  return dataGrf
 }
 
-async function fetchDataT() {
-  grf22 = await getGRFData();
+async function fetchDataT(data, patient_id) {
+  const range_s = document.getElementById("myRange");
+  range_s.value = 0;
+
+  const range = document.querySelector("#range-slider");
+  range.value = "0 sec";
+
+  const selectedTrial = document.querySelector(".descTrial");
+  selectedTrial.innerHTML = "Selected Trial: ".concat(patient_id) ;
+  // console.log(selectedTrial)
+  grf22 = await getFeetGrf(data);
 }
-fetchDataT();
+// fetchDataT();
 
 //Base svgs
 
