@@ -58,12 +58,12 @@ async function fetchData() {
     let soc = await parseSoc()
 
     let grf22 = await parseGRF(patient_id, "_22_grf.csv");
-    let grf23 = await parseGRF(patient_id, "_23_grf.csv");
-    let grf24 = await parseGRF(patient_id, "_24_grf.csv");
+    // let grf23 = await parseGRF(patient_id, "_23_grf.csv");
+    // let grf24 = await parseGRF(patient_id, "_24_grf.csv");
 
     let jnt22 = await parseJNT(patient_id, "_22_jnt.csv");
-    let jnt23 = await parseJNT(patient_id, "_23_jnt.csv");
-    let jnt24 = await parseJNT(patient_id, "_23_jnt.csv");
+    // let jnt23 = await parseJNT(patient_id, "_23_jnt.csv");
+    // let jnt24 = await parseJNT(patient_id, "_23_jnt.csv");
 
 
     // Call function required from your js file with the data you require
