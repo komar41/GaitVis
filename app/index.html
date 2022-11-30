@@ -100,7 +100,7 @@
         
         <br>
         <br>
-        <input type="range" min="0" max="10" value="0" class="slider" id="myRange" step="0.0017" onchange="updateSlice(value);" oninput="updateRangeVal(this.value)">
+        <input type="range" min="0" max="10" value="0" class="slider" id="myRange" step="0.0017" onmousemove="updateSlice(value);" oninput="updateRangeVal(this.value)" style="margin-left:60px;">
         <div id="range-slider-t">Time:</div>
         <output id="range-slider">0 sec</output>
         <!-- <div id="novelEncoding"></div> -->
