@@ -85,31 +85,31 @@ svg_left.append("circle")
             .attr("fill",'black');  
 
 svg_right.append("circle")
-            .attr("cx", 40)
+            .attr("cx", 80)
             .attr("cy", 30)
             .attr("r", 14)
             .attr("fill",'black');
 
 svg_right.append("circle")
-            .attr("cx", 68)
+            .attr("cx", 108)
             .attr("cy", 35)
             .attr("r", 12)
             .attr("fill",'black');
 
 svg_right.append("circle")
-            .attr("cx", 83)
+            .attr("cx", 123)
             .attr("cy", 55)
             .attr("r", 10)
             .attr("fill",'black');
             
 svg_right.append("circle")
-            .attr("cx", 90)
+            .attr("cx", 130)
             .attr("cy", 75)
             .attr("r", 8)
             .attr("fill",'black');           
 
 svg_right.append("circle")
-            .attr("cx", 93)
+            .attr("cx", 133)
             .attr("cy", 90)
             .attr("r", 6)
             .attr("fill",'black');
@@ -168,14 +168,14 @@ svg_left.append("path")
 //Arc 1
 svg_right.append("path")
             .attr('id', 'temp6')
-            .attr("transform", "translate(40,90)")
+            .attr("transform", "translate(80,90)")
             .attr("d", arcGenerator())
             .attr("fill", 'rgb(178,226,226)');
 
 //Rectangle 1
 svg_right.append("rect")
                 .attr('id', 'temp7')
-                .attr("x",0)
+                .attr("x",40)
                 .attr("y", 90)
                 .attr("width", 26)
                 .attr("height", 70)
@@ -184,7 +184,7 @@ svg_right.append("rect")
 //Rectangle 2
 svg_right.append("rect")
                 .attr('id', 'temp8')
-                .attr("x",26)
+                .attr("x",66)
                 .attr("y", 90)
                 .attr("width", 28)
                 .attr("height", 70)
@@ -193,7 +193,7 @@ svg_right.append("rect")
 //Rectangle 3
 svg_right.append("rect")
                 .attr('id', 'temp9')
-                .attr("x",54)
+                .attr("x",94)
                 .attr("y", 90)
                 .attr("width", 26)
                 .attr("height", 70)
@@ -202,115 +202,10 @@ svg_right.append("rect")
 //Arc 2
 svg_right.append("path")
                 .attr('id', 'temp10')
-                .attr("transform", "translate(40,160) rotate(180)")
+                .attr("transform", "translate(80,160) rotate(180)")
                 .attr("d", arcGenerator())
                 .attr("fill", 'rgb(178,226,226)');
 
-//Legends
-svg_right.append("text")
-        .attr("fill", "black")
-        .attr("x",108)
-        .attr("y", 40)
-        .text("AP"); 
-
-svg_right.append("text")
-        .attr("fill", "black")
-        .attr("x",108)
-        .attr("y", 70)
-        .text("ML"); 
-
-svg_right.append("text")
-        .attr("fill", "black")
-        .attr("x",108)
-        .attr("y", 100)
-        .text("VT"); 
-
-svg_right.append("text")
-        .attr("fill", "black")
-        .attr("x",128)
-        .attr("y", 20)
-        .text("Low"); 
-
-svg_right.append("text")
-        .attr("fill", "black")
-        .attr("x",158)
-        .attr("y", 20)
-        .text("Mid"); 
-
-svg_right.append("text")
-        .attr("fill", "black")
-        .attr("x",188)
-        .attr("y", 20)
-        .text("High"); 
-
-
-
-//Rectangles
-
-
-svg_right.append("rect")
-                .attr("x",135)
-                .attr("y", 30)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(178,226,226)');
-
-svg_right.append("rect")
-                .attr("x",135)
-                .attr("y", 60)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(203,201,226)');
-
-svg_right.append("rect")
-                .attr("x",135)
-                .attr("y", 90)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(252,174,145)');
-
-svg_right.append("rect")
-                .attr("x",163)
-                .attr("y", 30)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(102,194,164)');
-
-svg_right.append("rect")
-                .attr("x",163)
-                .attr("y", 60)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(158,154,200)');
-
-svg_right.append("rect")
-                .attr('id', 'temp9')
-                .attr("x",163)
-                .attr("y", 90)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(251,106,74)');
-
-svg_right.append("rect")
-                .attr("x",190)
-                .attr("y", 30)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(35,139,69)');
-
-svg_right.append("rect")
-                .attr("x",190)
-                .attr("y", 60)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(106,81,163)');
-
-svg_right.append("rect")
-                .attr("x",190)
-                .attr("y", 90)
-                .attr("width", 12)
-                .attr("height", 12)
-                .attr("fill", 'rgb(203,24,29)');
 
 async function updateSlice(val){
     console.log(val)

@@ -25,37 +25,19 @@ let parseSoc = () => {
 
 
 let parseGRF = (patient_id, fileName) => {
-    return d3.csv("data/".concat(patient_id, "/", patient_id, fileName), data => {
-        return {
-            time: +data.time,
-            rAP: +data["R-AP"],
-            lAP: +data["L-AP"],
-            rML: +data["R-ML"],
-            lML: +data["L-ML"],
-            rVT: +data["R-VT"],
-            lVT: +data["L-VT"]
-        }
-    }).then(data => { return data });
+    return d3.csv("data/".concat(patient_id, "/", patient_id, fileName))
+    .then(data => { return data });
 }
 
 let parseJNT = (patient_id, fileName) => {
-    return d3.csv("data/".concat(patient_id, "/", patient_id, fileName), data => {
-        return {
-            time: +data.time,
-            rFoot: +data["Rfoot"],
-            lFoot: +data["Lfoot"],
-            rShank: +data["RShank"],
-            lShank: +data["LShank"],
-            rThigh: +data["Rthigh"],
-            lThigh: +data["Lthigh"],
-            trunk: +data["trunk"]
-        }
-    }).then(data => { return data });
+    return d3.csv("data/".concat(patient_id, "/", patient_id, fileName))
+            .then(data => { return data });
 }
 
-async function fetchData() {
-    patient_id = "012518cm"
-    let soc = await parseSoc()
+async function fetchData(patient_id) {
+    console.log(patient_id)
+    // patient_id = "012518cm"
+    
 
     let grf22 = await parseGRF(patient_id, "_22_grf.csv");
     // let grf23 = await parseGRF(patient_id, "_23_grf.csv");
@@ -65,13 +47,24 @@ async function fetchData() {
     // let jnt23 = await parseJNT(patient_id, "_23_jnt.csv");
     // let jnt24 = await parseJNT(patient_id, "_23_jnt.csv");
 
+    genLineJnt(jnt22, patient_id)
+    getLineGrf(grf22, patient_id)
+}
+fetchData("012518cm")
 
-    // Call function required from your js file with the data you require
-    // console.log(soc)
-    // console.log(jnt22)
-    // console.log(grf22)
-    // console.log(grf23)
-    // console.log(grf24)
+async function fetchSocioDem(){
+    let soc = await parseSoc()
     plotHist(soc)
 }
-fetchData()
+fetchSocioDem()
+
+let selectTrialP = (object) =>{
+    let val = object.value
+    if(object.value!="Select a Trial"){
+        // console.log(selectObject.value)
+        const $select = document.querySelector('#trialSelectGRF');
+        $select.value = 'Select a Trial'
+    }
+    console.log(val)
+    fetchData(val)
+}

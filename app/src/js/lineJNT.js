@@ -18,9 +18,12 @@ var svgJNTRight = d3.select("#lineJnt2")
     .attr("transform",
         "translate(" + marginJNT.left + "," + marginJNT.top + ")");
 
-d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
-    function (data) {
-        var x = d3.scaleLinear()
+
+let genLineJnt = (data, patient_id) => {
+    svgJNTLeft.selectAll("*").remove();
+    svgJNTRight.selectAll("*").remove();
+
+    var x = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) { return +d.time; })])
             .range([0, widthJNT - 125]);
 
@@ -377,8 +380,10 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .text(function (d, i) { return keysRight[i] })
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
-
-        d3.csv("data/012518cm/012518cmstep.csv").then(
+        
+            // patient_id
+            
+        d3.csv("data/".concat(patient_id, "/", patient_id, "step.csv")).then(
             function (data1) {
                 svgJNTLeft.append("g")
                     .call(d3.axisLeft(yleft));
@@ -492,4 +497,4 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
                     });
             }
         )
-    });
+}

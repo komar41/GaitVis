@@ -18,8 +18,10 @@ var svgGFRRight = d3.select("#lineGrf2")
     .attr("transform",
         "translate(" + marginGFR.left + "," + marginGFR.top + ")");
 
-d3.csv("data/012518cm/012518cm_22_grf.csv").then(
-    function (data) {
+let getLineGrf = (data, patient_id) => {
+        svgGFRLeft.selectAll("*").remove();
+        svgGFRRight.selectAll("*").remove();
+
         var x = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) { return +d.time; })])
             .range([0, widthGFR - 100]);
@@ -316,7 +318,7 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
 
-        d3.csv("data/012518cm/012518cmstep.csv").then(
+            d3.csv("data/".concat(patient_id, "/", patient_id, "step.csv")).then(
             function (data1) {
                 svgGFRLeft.append("g")
                     .call(d3.axisLeft(yleft));
@@ -430,4 +432,5 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
                     });
             }
         )
-    });
+}
+
