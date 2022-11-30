@@ -33,14 +33,14 @@ d3.csv("data/012518cm/012518cm_22_grf.csv").then(
             .call(d3.axisBottom(x));
 
         var yleft = d3.scaleLinear()
-            .domain([d3.min(data, function (d) { return Math.min(d["L-AP"], d["L-ML"], d["L-VT"]); }), d3.max(data, function (d) { return Math.max(d["L-AP"], d["L-ML"], d["L-VT"]); })])
+            .domain([d3.min(data, function (d) { return Math.min(d["L-AP"], d["L-ML"], d["L-VT"], d["R-AP"], d["R-ML"], d["R-VT"]); }), d3.max(data, function (d) { return Math.max(d["L-AP"], d["L-ML"], d["L-VT"], d["R-AP"], d["R-ML"], d["R-VT"]); })])
             .range([heightGFR, 0]);
 
         svgGFRLeft.append("g")
             .call(d3.axisLeft(yleft));
 
         var yright = d3.scaleLinear()
-            .domain([d3.min(data, function (d) { return Math.min(d["R-AP"], d["R-ML"], d["R-VT"]); }), d3.max(data, function (d) { return Math.max(d["R-AP"], d["R-ML"], d["R-VT"]); })])
+            .domain([d3.min(data, function (d) { return Math.min(d["L-AP"], d["L-ML"], d["L-VT"], d["R-AP"], d["R-ML"], d["R-VT"]); }), d3.max(data, function (d) { return Math.max(d["L-AP"], d["L-ML"], d["L-VT"], d["R-AP"], d["R-ML"], d["R-VT"]); })])
             .range([heightGFR, 0]);
 
         svgGFRRight.append("g")

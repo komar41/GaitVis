@@ -33,14 +33,14 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .call(d3.axisBottom(x));
 
         var yleft = d3.scaleLinear()
-            .domain([d3.min(data, function (d) { return Math.min(d.Lfoot, d.Lshank, d.Lthigh, d.trunk); }), d3.max(data, function (d) { return Math.max(d.Lfoot, d.Lshank, d.Lthigh, d.trunk); })])
+            .domain([d3.min(data, function (d) { return Math.min(d.Lfoot, d.Lshank, d.Lthigh, d.Rfoot, d.Rshank, d.Rthigh, d.trunk); }), d3.max(data, function (d) { return Math.max(d.Lfoot, d.Lshank, d.Lthigh, d.Rfoot, d.Rshank, d.Rthigh, d.trunk); })])
             .range([heightJNT, 0]);
 
         svgJNTLeft.append("g")
             .call(d3.axisLeft(yleft));
 
         var yright = d3.scaleLinear()
-            .domain([d3.min(data, function (d) { return Math.min(d.Rfoot, d.Rshank, d.Rthigh, d.trunk); }), d3.max(data, function (d) { return Math.max(d.Rfoot, d.Rshank, d.Rthigh, d.trunk); })])
+            .domain([d3.min(data, function (d) { return Math.min(d.Lfoot, d.Lshank, d.Lthigh, d.Rfoot, d.Rshank, d.Rthigh, d.trunk); }), d3.max(data, function (d) { return Math.max(d.Lfoot, d.Lshank, d.Lthigh, d.Rfoot, d.Rshank, d.Rthigh, d.trunk); })])
             .range([heightJNT, 0]);
 
         svgJNTRight.append("g")
@@ -81,6 +81,7 @@ d3.csv("data/012518cm/012518cm_22_jnt.csv").then(
             .attr("fill", "none")
             .attr("stroke", "steelblue")
             .attr("stroke-widthJNT", 2)
+            .style('shape-rendering','crispEdges')
             .attr("d", d3.line()
                 .x(function (d) { return x(d.time) })
                 .y(function (d) { return yleft(d.Lfoot) })
