@@ -23,7 +23,7 @@ body {
 }
 
 .line-1 {
-    border: 0.5px dashed rgba(0, 0, 0, 0.272);
+    border: 1px dashed rgba(0, 0, 0, 0.272);
     width: 100%;
     position: absolute;
     top: 290px;
