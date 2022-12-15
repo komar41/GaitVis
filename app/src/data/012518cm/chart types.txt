@@ -1,3 +1,0 @@
-scatter -> correlation
-bar -> compare (different ages, healthy and group)
-spider charts

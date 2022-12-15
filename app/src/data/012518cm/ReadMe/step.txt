@@ -1,4 +1,0 @@
-This is the file for step time that includes touch-down, lift-off for left and right foot.
-
-trialtype 
-Nat = Natural Walking
