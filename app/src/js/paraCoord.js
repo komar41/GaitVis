@@ -18,7 +18,7 @@ d3.csv("data/all_trials.csv").then(function (data) {
   // Color scale: give me a specie name, I return a color
   const color = d3.scaleOrdinal()
     .domain(["stroke-survivor", "older-healthy"])
-    .range(["#d95f02", "#7570b3"])
+    .range(["#66c2a5", "#fc8d62"])
 
   // Here I set the list of dimension manually to control the order of axis:
   dimensions = ["Step Time (L)", "Step Time (R)", "Stride Time (L)", "Stride Time (R)", "Swing Time (L)", "Swing Time (R)"]

@@ -74,7 +74,7 @@ for (var i = 0; i < features.length; i++) {
 let line = d3.line()
     .x(d => d.x)
     .y(d => d.y);
-let colors = ["darkorange", "green", "navy"];
+let colors = ["#66c2a5", "#fc8d62", "#8da0cb"];
 
 function getPathCoordinates(data_point) {
     let coordinates = [];

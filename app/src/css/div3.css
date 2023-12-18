@@ -9,7 +9,7 @@
     top: 40px;
     right: 70px;
     /* margin-top: 10px; */
-    background-color: #69b869;
+    background-color: #41ae76;
     color: #fff;
     border: none;
     text-align: left;
@@ -35,7 +35,7 @@
     right: 5px;
     top: 40px;
     /* margin-top: 10px; */
-    background-color: #a14747;
+    background-color: #f47573;
     color: #fff;
     border: none;
     text-align: center;
@@ -47,11 +47,11 @@
 }
 
 .buttonRemP:hover {
-    background-color: #da2626
+    background-color: #f0605e
 }
 
 .buttonRemP:active {
-    background-color: #da2626;
+    background-color: #f0605e;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }

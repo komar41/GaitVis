@@ -443,8 +443,8 @@ function plotHist(soc) {
         .attr("height", function (d) {
           return height - y(d[selectedVar]);
         })
-        .attr("fill", "#1F78B4")
-        .attr("stroke", "black");
+        .attr("fill", "#66c2a5")
+        // .attr("stroke", "#eeeeee");
     });
   }
 
