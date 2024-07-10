@@ -95,6 +95,8 @@ Multiple iterations of prototypes were developed, focusing on different aspects:
 - Novel GRF encoding
 - Interactive features and linked views
 
+### <ins>Sketches<ins>
+
 ![image](img/s1-1.png)
 ![image](img/s1-2.png)
 ![image](img/s2-1.png)
