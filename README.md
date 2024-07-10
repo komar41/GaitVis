@@ -6,7 +6,7 @@ GaitVis is a visualization tool designed to explore gait characteristics among s
 - __Access this project:__ https://komar41.github.io/GaitVis
 - __GitHub repo:__ https://github.com/komar41/GaitVis
 - __Demo Video:__ https://youtu.be/Ma3Z5PUPIko
-- __Presentation:__ https://github.com/komar41/GaitVis/presentation.pptx
+- __Presentation:__ https://github.com/komar41/GaitVis/blob/main/presentation.pptx
 - __Tools used:__ - Python, NumPy, Pandas, JavaScript, HTML, CSS, SVG, D3.js
 
 
